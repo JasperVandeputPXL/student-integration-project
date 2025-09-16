@@ -1,0 +1,10 @@
+{
+  "eanNumber": "abc123",
+  "injectionPrice": "10000",
+  "injectionValue": "100",
+  "metedId": "def456",
+  "offtakePrice": "99999",
+  "offtakeValue": "5000",
+  "timestampEnd": "2024-09-21T03:46:00+00:00",
+  "timestampStart": "2024-09-22T03:46:00+00:00"
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "eanNumber": "abc123",
+    "meterReadings": [
+      {
+        "dailyEnergy": [
+          {
+            "injectionValidationState": "jwjxonpbrsydpscxrymbusrstfwvt",
+            "injectionValue": "hrqtkvlktmqueuhsofpsjldsibryxtgdudry",
+            "offtakeValidationState": "wwvnpapslrldhdiavoqxpnjgmoqhqfhfpojp",
+            "offtakeValue": "juvmmuk",
+            "timestampEnd": "qfsjnakepbugopuddw",
+            "timestampStart": "dcu"
+          },
+          {
+            "injectionValidationState": "ujyvwibmsisdhlgvueaqbqodpmtn",
+            "injectionValue": "wvtamtxyjphnaqsgsd",
+            "offtakeValidationState": "ashhqroabjgtljvkpphdrfmrs",
+            "offtakeValue": "xbtwknhjfedypdg",
+            "timestampEnd": "hnvqtsjsrfj",
+            "timestampStart": "ligpi"
+          },
+          {
+            "injectionValidationState": "socfomppnpdhvmhgjnksf",
+            "injectionValue": "hlvyrlnlrxoritpluwilyodu",
+            "offtakeValidationState": "gjakcoobi",
+            "offtakeValue": "pnayyphwtmdkyvdyuxwmwkbypelqsso",
+            "timestampEnd": "pwwaxehfgmmtnspeeskmns",
+            "timestampStart": "ktpjixbkkvfdmfvxqqidieputyt"
+          }
+        ],
+        "meterId": "ijfxddccbtfnwga"
+      },
+      {
+        "dailyEnergy": [
+          {
+            "injectionValidationState": "carglcvecudfvysrihtadaqybecxdik",
+            "injectionValue": "xg",
+            "offtakeValidationState": "oibqwkgxoxb",
+            "offtakeValue": "khduhecpsfchbkqvqvxtftlqddm",
+            "timestampEnd": "ivkwfvlrctfgsaugefqrrnnxxqkcrwjs",
+            "timestampStart": "qyfxkwolrquundfmhjuadraiqcnrn"
+          }
+        ],
+        "meterId": "hnspkbnxkvbxasjskjltios"
+      }
+    ]
+  },
+  {
+    "eanNumber": "def456",
+    "meterReadings": [
+      {
+        "dailyEnergy": [
+          {
+            "injectionValidationState": "jwjxonpbrsydpscxrymbusrstfwvt",
+            "injectionValue": "hrqtkvlktmqueuhsofpsjldsibryxtgdudry",
+            "offtakeValidationState": "wwvnpapslrldhdiavoqxpnjgmoqhqfhfpojp",
+            "offtakeValue": "juvmmuk",
+            "timestampEnd": "qfsjnakepbugopuddw",
+            "timestampStart": "dcu"
+          },
+          {
+            "injectionValidationState": "ujyvwibmsisdhlgvueaqbqodpmtn",
+            "injectionValue": "wvtamtxyjphnaqsgsd",
+            "offtakeValidationState": "ashhqroabjgtljvkpphdrfmrs",
+            "offtakeValue": "xbtwknhjfedypdg",
+            "timestampEnd": "hnvqtsjsrfj",
+            "timestampStart": "ligpi"
+          },
+          {
+            "injectionValidationState": "socfomppnpdhvmhgjnksf",
+            "injectionValue": "hlvyrlnlrxoritpluwilyodu",
+            "offtakeValidationState": "gjakcoobi",
+            "offtakeValue": "pnayyphwtmdkyvdyuxwmwkbypelqsso",
+            "timestampEnd": "pwwaxehfgmmtnspeeskmns",
+            "timestampStart": "ktpjixbkkvfdmfvxqqidieputyt"
+          }
+        ],
+        "meterId": "ijfxddccbtfnwga"
+      },
+      {
+        "dailyEnergy": [
+          {
+            "injectionValidationState": "carglcvecudfvysrihtadaqybecxdik",
+            "injectionValue": "xg",
+            "offtakeValidationState": "oibqwkgxoxb",
+            "offtakeValue": "khduhecpsfchbkqvqvxtftlqddm",
+            "timestampEnd": "ivkwfvlrctfgsaugefqrrnnxxqkcrwjs",
+            "timestampStart": "qyfxkwolrquundfmhjuadraiqcnrn"
+          }
+        ],
+        "meterId": "hnspkbnxkvbxasjskjltios"
+      }
+    ]
+  }
+]

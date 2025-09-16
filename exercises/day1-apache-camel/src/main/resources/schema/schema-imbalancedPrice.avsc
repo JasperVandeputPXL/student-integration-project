@@ -1,0 +1,51 @@
+{
+  "type": "record",
+  "name": "TestObject",
+  "namespace": "cp4i",
+  "fields": [
+    {
+      "name": "ace",
+      "type": "double"
+    },
+    {
+      "name": "alpha",
+      "type": "double"
+    },
+    {
+      "name": "alpha_prime",
+      "type": "double"
+    },
+    {
+      "name": "datetime",
+      "type": "string"
+    },
+    {
+      "name": "imbalanceprice",
+      "type": "double"
+    },
+    {
+      "name": "marginaldecrementalprice",
+      "type": "double"
+    },
+    {
+      "name": "marginalincrementalprice",
+      "type": "double"
+    },
+    {
+      "name": "qualitystatus",
+      "type": "string"
+    },
+    {
+      "name": "quarterhour",
+      "type": "string"
+    },
+    {
+      "name": "resolutioncode",
+      "type": "string"
+    },
+    {
+      "name": "systemimbalance",
+      "type": "double"
+    }
+  ]
+}
