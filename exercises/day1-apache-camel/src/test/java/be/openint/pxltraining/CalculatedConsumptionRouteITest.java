@@ -1,9 +1,7 @@
 package be.openint.pxltraining;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.EndpointInject;
 import org.apache.camel.ProducerTemplate;
-import org.apache.camel.builder.AdviceWith;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.spring.junit5.CamelSpringBootTest;
@@ -96,7 +94,7 @@ public class CalculatedConsumptionRouteITest {
     }
 
     private String readRequestBodyFileAsString() throws IOException, URISyntaxException {
-        URL jsonPayloadFile = EANConsumptionRoute.class.getResource("/samples/priceCalculation.json");
+        URL jsonPayloadFile = TicketPurchaseAPIRoute.class.getResource("/samples/priceCalculation.json");
         return Files.readString(Paths.get(jsonPayloadFile.toURI()));
     }
 }

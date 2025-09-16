@@ -50,7 +50,7 @@ public class EANConsumptionRouteITest {
   @EndpointInject("mock:consumeKafkaTopic")
   private MockEndpoint messageConsumer;
 
-  @Value("${kafka.meter.consumption.info.topic}")
+  @Value("${kafka.festival.purchases.topic}")
   private String topicName;
 
   @DynamicPropertySource
@@ -96,7 +96,7 @@ public class EANConsumptionRouteITest {
   }
 
   private static String readRequestBodyAsAFile() throws IOException, URISyntaxException {
-    URL jsonPayloadFile = EANConsumptionRoute.class.getResource("/samples/eanConsumptionsBody.json");
+    URL jsonPayloadFile = TicketPurchaseAPIRoute.class.getResource("/samples/eanConsumptionsBody.json");
     return Files.readString(Paths.get(jsonPayloadFile.toURI()));
   }
 }
