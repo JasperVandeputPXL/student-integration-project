@@ -21,14 +21,8 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
 
     @Override
     public void configure() {
-        restConfiguration()
-            .apiContextPath("/api-doc");
-
-        rest()
-            .openApi("schema/Festival_Ticket_Sales_API.yaml").getOpenApi().setMissingOperation("ignore");
-
         // https://camel.apache.org/components/4.4.x/scheduler-component.html
-        from("direct:purchaseTicket")
+        from("scheduler:runOnceForPXLTrainingBase?delay=1000&repeatCount=1")
             .routeId(getClass().getSimpleName())
             .setBody(constant(">>>>>>>>> hello world! <<<<<<<<<<"))
             // https://camel.apache.org/components/4.4.x/log-component.html
