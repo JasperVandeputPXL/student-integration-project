@@ -1,0 +1,211 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Festival Ticket Sales API",
+    "description": "Public entry point for managing festival ticket purchases. This API is designed for asynchronous, event-driven interactions.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.festival.com/v1"
+    }
+  ],
+  "paths": {
+    "/tickets/{ticketId}/purchase": {
+      "post": {
+        "summary": "Initiates a new ticket purchase.",
+        "description": "Publishes a purchase request to the event backbone. This is an asynchronous operation.\nThe API immediately returns a 202 Accepted response, and the client should monitor\nthe purchase status separately.\n",
+        "operationId": "purchaseTicket",
+        "parameters": [
+          {
+            "name": "ticketId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The unique identifier for the ticket type being purchased."
+          }
+        ],
+        "requestBody": {
+          "description": "Purchase request details.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurchaseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Purchase request successfully accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseAcceptedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body or parameters."
+          },
+          "429": {
+            "description": "Rate limit exceeded."
+          }
+        }
+      }
+    },
+    "/purchases/{purchaseId}": {
+      "get": {
+        "summary": "Retrieves the status of a ticket purchase.",
+        "description": "Checks the current status of an initiated purchase. This allows clients to\nasynchronously track payment and fulfillment progress.\n",
+        "parameters": [
+          {
+            "name": "purchaseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The unique identifier for the initiated purchase."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Purchase status retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseStatus"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Purchase not found."
+          }
+        }
+      }
+    },
+    "/tickets/{ticketType}/inventory": {
+      "get": {
+        "summary": "Gets the real-time inventory count for a ticket type.",
+        "description": "Exposes the current number of available tickets, updated by the Flink job.",
+        "parameters": [
+          {
+            "name": "ticketType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The unique identifier for the ticket type."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Real-time inventory count retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketInventory"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Ticket type not found."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PurchaseRequest": {
+        "type": "object",
+        "required": [
+          "userId",
+          "quantity",
+          "ticketType"
+        ],
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique identifier for the user making the purchase."
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "The number of tickets to purchase.",
+            "minimum": 1
+          },
+          "ticketType": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "vip"
+            ],
+            "description": "The type of ticket being purchased."
+          }
+        }
+      },
+      "PurchaseAcceptedResponse": {
+        "type": "object",
+        "properties": {
+          "purchaseId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique ID assigned to the new purchase request."
+          },
+          "statusUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL to check the status of the purchase."
+          }
+        }
+      },
+      "PurchaseStatus": {
+        "type": "object",
+        "properties": {
+          "purchaseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "COMPLETED",
+              "FAILED",
+              "CANCELLED"
+            ],
+            "description": "The current status of the purchase."
+          },
+          "paymentStatus": {
+            "type": "string",
+            "description": "Optional details about the payment status."
+          }
+        }
+      },
+      "TicketInventory": {
+        "type": "object",
+        "properties": {
+          "ticketType": {
+            "type": "string"
+          },
+          "availableCount": {
+            "type": "integer",
+            "description": "The current number of available tickets.",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}
