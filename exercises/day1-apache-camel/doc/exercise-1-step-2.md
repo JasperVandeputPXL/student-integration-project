@@ -39,7 +39,7 @@ Now that you know that you have managed to send an event on a Kafka Test contain
    The queue name to use is define in the application.properties with the key: _kafka.energy.info.topic_.  
    Use that topic name in you consumer.
    - _docker exec -it broker sh_
-   - _/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic **ID_PRODUCE_READINGS**_
+   - _/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic **ID_PRODUCE_PURCHASES**_
 3. start you application
 4. send a request on you API using Postman.
 5. you should see the log of your route
