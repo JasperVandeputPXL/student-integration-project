@@ -1,0 +1,26 @@
+{
+	"type": "record",
+	"namespace": "cp4i",
+	"name": "TicketPurchase",
+	"fields": [
+		{
+			"name": "userId",
+			"type": "string",
+			"doc": "The unique identifier for the user making the purchase. (UUID format)"
+		},
+		{
+			"name": "quantity",
+			"type": "int",
+			"doc": "The number of tickets to purchase. Minimum value: 1"
+		},
+		{
+			"name": "ticketType",
+			"type": {
+				"type": "enum",
+				"name": "TicketType",
+				"symbols": ["normal", "vip"]
+			},
+			"doc": "The type of ticket being purchased."
+		}
+	]
+}
