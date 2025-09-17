@@ -34,7 +34,7 @@ import java.nio.file.Paths;
 @SpringBootTest
 @CamelSpringBootTest
 @EnableAutoConfiguration
-public class EANConsumptionRouteITest {
+public class TicketPurchaseAPIRouteITest {
 
   @Autowired
   private CamelContext context;
@@ -76,27 +76,21 @@ public class EANConsumptionRouteITest {
     });
 
     //defining what is expected to happen on the mock
-    messageConsumer.expectedMessageCount(2);
+    messageConsumer.expectedMessageCount(1);
     //send the event to the route to test
-    producerTemplate.sendBody("direct:addEANConsumptions", readRequestBodyAsAFile());
+    producerTemplate.sendBody("direct:purchaseTicket", readRequestBodyAsAFile());
 
     //verifies that the expectation were fulfilled
     messageConsumer.assertIsSatisfied();
 
-    //verifying one by one that each element in the initial request body have been consumed.
-    //Loading the JSON body in a JSON aware array.
-    JSONArray jsonArray = new JSONArray(readRequestBodyAsAFile());
-    //Loop over each message received and compare it JSON aware with the corresponding element in the original body
-    int i = 0;
-    for (Exchange exchange: messageConsumer.getExchanges()) {
-      String body = exchange.getIn().getBody(String.class);
-      JsonAssertions.assertThatJson(body).isEqualTo(jsonArray.get(i).toString());
-      i++;
-    }
+    //verifying the request body is the one expected
+    Exchange exchange = messageConsumer.getExchanges().getFirst();
+    String body = exchange.getIn().getBody(String.class);
+    JsonAssertions.assertThatJson(body).isEqualTo(readRequestBodyAsAFile());
   }
 
   private static String readRequestBodyAsAFile() throws IOException, URISyntaxException {
-    URL jsonPayloadFile = TicketPurchaseAPIRoute.class.getResource("/samples/eanConsumptionsBody.json");
+    URL jsonPayloadFile = TicketPurchaseAPIRoute.class.getResource("/samples/ticketPurchaseBody.json");
     return Files.readString(Paths.get(jsonPayloadFile.toURI()));
   }
 }
