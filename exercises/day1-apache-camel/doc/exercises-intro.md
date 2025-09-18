@@ -11,6 +11,7 @@ Prerequisites:
 - an IDE: Intellij CE or the one of your choice
 - Git-bash: install it from https://git-scm.com/downloads (use the default installation options)
 - Quarkus CLI: in Git-bash terminal run the "curl" install commands documented on https://quarkus.io/get-started/
+- Docker or Podman daemon (Docker desktop or Podman desktop on Windows)
 
 The exercise will make you:
 

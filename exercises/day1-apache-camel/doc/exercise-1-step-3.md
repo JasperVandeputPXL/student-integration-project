@@ -24,11 +24,12 @@ We will use it to validate the input.
 2. test that you are sending something to Kafa in an integration test using TestContainer framework.  
    Open the test class _TicketPurchaseAPIRouteITest_.  
    Verify that the producerTemplate.sendBody(...) is set to the same value as your from(...) in you business route _CamelRoute_.  
+   It should be "direct:purchaseTicket" and thus you should write _producerTemplate.sendBody("direct:purchaseTicket")_ in your test class.    
    For your information, when a container is started, it choose a random port available to expose it on your machine.  
    In the _'runtimeConfiguration(...)'_ method, the server to connect is dynamically configured to the current local URI.
 
    Start your docker server. The integration test will use it.
-   Run the integration test. If it succeed, it means that:
+   Run the integration test. If it succeeds, it means that:
    - a Kafka container was started
    - an event was sent on it on a specific topic
    - exactly one event was consumed from it from that specific topic
@@ -77,16 +78,9 @@ To create your Avro Schema from the avro definition:
    import org.apache.avro.io.*;
    ```
 3. run the test TicketPurchaseAPIRouteITest and check that you see the log "receiving ticket purchase request for userId 3fa85f64-5717-4562-b3fc-2c963f66afa6".
-4. Run it against you local kafka (optionnal from here).  
-   Configure the Kafka url and topic to use in your application.properties
-   ```properties
-   camel.component.kafka.brokers=localhost:9092
-   kafka.energy.info.topic=testtopic
-   ```
-4. define the topic name in your route and use it
-
-5. run your application with the kafka in docker to check that you receive the event inside kafka.
-   Pay attention that the body you send is conform to the Avro definition otherwise you'll get an error because the input is invalid.
-6. Check that you see the log "receiving ticket purchase request for userId 3fa85f64-5717-4562-b3fc-2c963f66afa6" with your id.
+4. Run it with 'quarkus dev'
+5. create the topic on the dev ui with the name from your configuration
+6. Send a POST request with a body conform to the OpenAPI specification otherwise you'll get an error because the input is invalid.
+7. Check that you see the log "receiving ticket purchase request for userId 3fa85f64-5717-4562-b3fc-2c963f66afa6" with your id and that the ticket is in Kafka
    
     [to step 4](exercise-1-step-4) 

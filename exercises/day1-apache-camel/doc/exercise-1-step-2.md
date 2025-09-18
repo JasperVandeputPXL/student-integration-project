@@ -28,21 +28,19 @@
    It will use the configuration in application.properties in the test resources in the src/test/resources directory.
    The test has to succeed and somewhere in the logs you should find you log "body of ticket purchase" with the body on the nex lines.
 
-## Send an event to a local Kafka (optional but nice to run Kafka and play with your application locally)
+## Send an event to Kafka started for you automatically by Quarkus
 
 Now that you know that you have managed to send an event on a Kafka Test container, lets send an event on local Kafka container.
 
-1. start a local kafka container and expose his port on you host machine.
-   In your git bash shell: _docker run -d -p 9092:9092 --name broker apache/kafka:latest_  
-2. prepare a consumer in the container that will consume the events you are sending on Kafka.
-   Continue in your shell with these commands to login the container and start the consumer.
-   The queue name to use is define in the application.properties with the key: _kafka.energy.info.topic_.  
-   Use that topic name in you consumer.
-   - _docker exec -it broker sh_
-   - _/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic **ID_PRODUCE_PURCHASES**_
-3. start you application
-4. send a request on you API using Postman.
-5. you should see the log of your route
-6. you should see the content of your request printed on the command line by your consumer in your container
+1. start the application with 'quarkus dev'     
+2. navigate to http://localhost:8080/q/dev-ui/quarkus-kafka-client/topics
+3. create a topic with the same name as the value of your configuration 'kafka.festival.purchases.topic'. It's "ID_PRODUCE_PURCHASES" if you did not change anything
+4. send a request on you API using Postman: 
+   - POST to "localhost:8080/v1/tickets/:ticketId/purchase"
+   - set the ticket id param (Params tab) to a number
+   - set the body to whatever JSON value you want, it's not verified yet. Example: {"foo":"bar"}
+   - send the request
+5. you should see the log of your route in the console log
+6. you should see the content of your request body as a new entry in the Kafka topic on the dashboard at http://localhost:8080/q/dev-ui/quarkus-kafka-client/topics  
    
     [to step 3](exercise-1-step-3) 

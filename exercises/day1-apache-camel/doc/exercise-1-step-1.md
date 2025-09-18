@@ -8,7 +8,8 @@
 4. run the application:  
 	- in Git-bash, go to your application directory: cd /c/path/to/your/repository/**exercises/day1-apache-camel**  
 	- run: quarkus dev  
-      This will start your application in dev mode which comes with the handy dashboard that you can find from http://localhost:8080 in your browser
+      This will start your application in dev mode which comes with the handy dashboard that you can find from http://localhost:8080 in your browser.
+      It comes with automatic reload of your code as well.
 5. when the application runs, somewhere at the end of the logs in the console you should see a log entry with the text ">>>>>>>>> hello world! <<<<<<<<<<"  
 
 ## Expose a REST API
@@ -36,7 +37,7 @@ Keep this in mind when you configure/program a route.
    from("direct:purchaseTicket")...
    ```
 
-3. run the application and test it with postman.  
+3. run the application (quarkus dev command from the directory of the application) and test it with postman.  
    In postman, create an HTTP POST request to http://localhost:8080/v1/tickets/:ticketId/purchase [this could be different].  
    To be sure about the URI to use check what URIs you find with Spring actuator mapping capability. In you browser go to http://localhost:8080/actuator/mappings.  
    Find the correct URI of your API in the response by searching on the "purchase" word in the page. 
@@ -44,7 +45,7 @@ Keep this in mind when you configure/program a route.
    Define a random Json body and send the request.  
    The result in Postman should be to receive the '>>>>>>>>> hello world! <<<<<<<<<<' text as a response.  
    
-4. expose the OpenSpecs. Use the rest configuration to define an api context: https://github.com/apache/camel/blob/camel-4.2.x/components/camel-openapi-java/src/main/docs/openapi-java.adoc#using-openapi-in-rest-dsl.
+4. expose the OpenSpecs. Use the rest configuration to define an api context: https://github.com/apache/camel/blob/camel-4.2.x/components/camel-openapi-java/src/main/docs/openapi-java.adoc#using-openapi-in-rest-dsl.  
    Paste this a the begin of the existing `public void configure()` method:
 
    ```java
