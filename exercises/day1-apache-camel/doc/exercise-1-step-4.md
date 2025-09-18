@@ -26,6 +26,7 @@ To be allowed to send events on it, you have to authenticate and to encrypt the 
      kafka.meter.consumption.info.sasl-jaas-config=org.apache.kafka.common.security.plain.PlainLoginModule required username="[USER]" password="[PASSWORD]";
      ```
 2. Run you application and send a valid request body to your API. Check (or ask to check if you don't have access) on the EEM dashboard if your event is present on the topic.  
-   You'll find a valid dummy body your test resources of the project at src/test/resources/samples/eanConsumptionsBody.json.  
+   You'll find a valid dummy body your test resources of the project at src/test/resources/samples/ticketPurchaseBody.json.  
+   This time, the 'quarkus dev' command will not start a Kafka instance for you. It does that only if not kafka configuration is set.
    
     [to step 5](exercise-1-step-5) 

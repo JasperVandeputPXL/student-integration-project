@@ -8,26 +8,26 @@
    a. Open a shell on your cloud VM: _ssh -i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]_
    b. Install java: _sudo dnf install java-21-amazon-corretto-devel_
 3. build your application in git bash.  
-   From the root of your application run: _mvn clean package_  
+   From the root of your application run: _mvn clean package -DskipTests_  
 4. copy the resulting jar to your VM:   
    ```shell
-   scp target/pxl-training-base-1.0-SNAPSHOT.jar -i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]:~
+   scp target/quarkus-app/quarkus-run.jar -i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]:~
    ```
 5. copy your kafka pem certificate received in step 4 to your VM:  
    _scp path/to/kafka.pem i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]_
 6. run your application:  
    ```shell
-   nohup java -jar pxl-training-base-1.0-SNAPSHOT.jar 2>&1 &  
+   nohup java -jar quarkus-run.jar 2>&1 &  
    ```
-   You'll find a 'nohup.out' file in the same directory. It collects the output ogs of your application.
+   You'll find a 'nohup.out' file in the same directory. It collects the output logs of your application.
    You can use it to follow what is going on by tailing it:  
    ```shell
    tail -f nohup.out
    ```
-   To stop it hit: ctrl + c
+   To stop tailing the logs it hit: ctrl + c
 7. test your application. In postman, change localhost with http://[YOUR-VM-DNS]:8080. 
    Send a request with a valid body.
-8. optionnaly, if you want to stop your java application you have to kill it.  
+8. optionally, if you want to stop your java application you have to kill it.  
    Find the PID (process id). This is an example on a random VM:
    ```shell
    [ec2-user@ip-172-31-21-86 ~]$ ps -ef | grep java
