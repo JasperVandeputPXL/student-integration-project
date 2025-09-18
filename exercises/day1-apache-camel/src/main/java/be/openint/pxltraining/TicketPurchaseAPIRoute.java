@@ -1,22 +1,22 @@
 package be.openint.pxltraining;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 /**
  * Exercise 1 start route
  */
-@Component
+@ApplicationScoped
 public class TicketPurchaseAPIRoute extends RouteBuilder {
 
-    @Value("${kafka.festival.purchases.topic}")
+    @ConfigProperty(name = "kafka.festival.purchases.topic")
     private String topicName;
 
-    @Value("${kafka.festival.purchases.client.id}")
+    @ConfigProperty(name = "kafka.festival.purchases.client.id")
     private String clientId;
 
-    @Value("${kafka.festival.purchases.sasl-jaas-config}")
+    @ConfigProperty(name = "kafka.festival.purchases.sasl-jaas-config")
     private String saslJaasConfig;
 
     @Override

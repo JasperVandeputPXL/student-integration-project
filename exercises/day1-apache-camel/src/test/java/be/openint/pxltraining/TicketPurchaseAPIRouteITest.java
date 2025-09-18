@@ -1,24 +1,18 @@
 package be.openint.pxltraining;
 
+import be.openint.pxltraining.configuration.KafkaTestContainerResource;
+import io.quarkus.test.common.WithTestResource;
+import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
 import net.javacrumbs.jsonunit.assertj.JsonAssertions;
-import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
-import org.apache.camel.test.spring.junit5.CamelSpringBootTest;
-import org.json.JSONArray;
+import org.apache.camel.quarkus.test.CamelQuarkusTestSupport;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.KafkaContainer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.utility.DockerImageName;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -31,34 +25,20 @@ import java.nio.file.Paths;
  * The "sendBody(...)" triggers the route and is expecting that the route consumer (from) has the uri: "direct:camelRoute".
  * The test checks that exactly one event was sent to the topic and that the body of the event is the same as the one sent.
  */
-@SpringBootTest
-@CamelSpringBootTest
-@EnableAutoConfiguration
-public class TicketPurchaseAPIRouteITest {
-
-  @Autowired
-  private CamelContext context;
-
-  @Container
-  private static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:5.4.3"));
+@QuarkusTest
+@WithTestResource(KafkaTestContainerResource.class)
+public class TicketPurchaseAPIRouteITest extends CamelQuarkusTestSupport {
 
   //a utility to send messages on a route
-  @Autowired
+  @Inject
   ProducerTemplate producerTemplate;
 
   //a utility to mock an Camel consumer component
   @EndpointInject("mock:consumeKafkaTopic")
   private MockEndpoint messageConsumer;
 
-  @Value("${kafka.festival.purchases.topic}")
+  @ConfigProperty(name = "kafka.festival.purchases.topic")
   private String topicName;
-
-  @DynamicPropertySource
-  public static void runtimeConfiguration(DynamicPropertyRegistry registry) {
-    kafka.start();
-    //dynamically configures the url of the bootstrap server for the Camel Kafka producer.
-    registry.add("camel.component.kafka.brokers", kafka::getBootstrapServers);
-  }
 
   @Test
   public void testKafkaProduced() throws Exception {

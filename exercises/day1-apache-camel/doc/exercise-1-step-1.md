@@ -6,10 +6,10 @@
 2. the code lies under the exercises/day1-apache-camel directory in the main branch  
 3. open the project subdirectory in Intellij  
 4. run the application:  
-	- in Intellij, got to the App class and run it  
-	- or in git bash, go to the root of your project and run: mvn spring-boot:run  
-5. you should see a log written with:  
-   Exchange[ExchangePattern: InOnly, BodyType: String, Body: >>>>>>>>> hello world! <<<<<<<<<<]  
+	- in Git-bash, go to your application directory: cd /c/path/to/your/repository/**exercises/day1-apache-camel**  
+	- run: quarkus dev  
+      This will start your application in dev mode which comes with the handy dashboard that you can find from http://localhost:8080 in your browser
+5. when the application runs, somewhere at the end of the logs in the console you should see a log entry with the text ">>>>>>>>> hello world! <<<<<<<<<<"  
 
 ## Expose a REST API
 
@@ -23,7 +23,7 @@ Keep this in mind when you configure/program a route.
    
    ```java
    rest()
-	.openApi("schema/Festival_Ticket_Sales_API.yaml");
+	.openApi("schema/Festival_Ticket_Sales_API.json");
    ```
    
    Thanks to the contract first approach, Camel will expect to have a route with a specific "direct:" consumer name create by convention from the OpenAPI spec operationId.  
