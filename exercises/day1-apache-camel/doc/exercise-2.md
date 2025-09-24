@@ -2,10 +2,8 @@
 
 ## Introduction
 
-In this exercise you are going to poll on scheduled time the energy prices in Belgium and put it on a Kafka topic.
-We will use the Elia Opendata API: https://help.opendatasoft.com/apis/ods-explore-v2/  
-
-We will use the _Imbalance prices per minute (Near real-time)_ API: https://opendata.elia.be/explore/dataset/ods161/api/  
+In this exercise you are going get payment status events from a Kafka topic and keep it in memory.
+All the payment status will be reloaded at startup hence it is not required to persist the status locally.
 
 ## Schedule the route every 60 seconds
 

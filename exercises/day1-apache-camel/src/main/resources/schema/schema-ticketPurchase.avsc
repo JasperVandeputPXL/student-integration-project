@@ -1,17 +1,24 @@
 {
 	"type": "record",
-	"namespace": "cp4i",
-	"name": "TicketPurchase",
+	"name": "PurchaseRequested",
+	"namespace": "com.festival.tickets",
+	"doc": "Represents a new ticket purchase request event.",
 	"fields": [
 		{
-			"name": "userId",
-			"type": "string",
-			"doc": "The unique identifier for the user making the purchase. (UUID format)"
+			"name": "purchaseId",
+			"type": {
+				"type": "string",
+				"logicalType": "uuid"
+			},
+			"doc": "The unique identifier for the purchase request."
 		},
 		{
-			"name": "quantity",
-			"type": "int",
-			"doc": "The number of tickets to purchase. Minimum value: 1"
+			"name": "userId",
+			"type": {
+				"type": "string",
+				"logicalType": "uuid"
+			},
+			"doc": "The unique identifier for the user making the purchase."
 		},
 		{
 			"name": "ticketType",
@@ -21,6 +28,19 @@
 				"symbols": ["normal", "vip"]
 			},
 			"doc": "The type of ticket being purchased."
+		},
+		{
+			"name": "quantity",
+			"type": "int",
+			"doc": "The number of tickets to purchase."
+		},
+		{
+			"name": "timestamp",
+			"type": {
+				"type": "long",
+				"logicalType": "timestamp-millis"
+			},
+			"doc": "The time the event was created in milliseconds since epoch."
 		}
 	]
 }

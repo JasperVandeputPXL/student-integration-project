@@ -1,38 +1,42 @@
-# Exercise 1 step 6
+# Exercise 1 step 5
 
-**Do this step only once you call your Camel route from the Azure API Manager the 2nd day of the training**  
-OR  
-**if you know how to get an access token on an Autorization server with client credentials**  
+## deploy you application in the cloud
 
-## secure you API with OAuth2
-There is an Authorization Server configured for us on Azure.  
-You can find the endpoints at https://sts.windows.net/09385aae-477d-4c3c-bb3d-36f75a52cdc3/.well-known/openid-configuration.  
+1. ask the DNS of your VM in the cloud and the private key to access it.
+2. install java on your VM.
+   In git bash: 
+   a. Open a shell on your cloud VM: _ssh -i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]_
+   b. Install java: _sudo dnf install java-21-amazon-corretto-devel_
+3. build your application with the option to create an executable jar in git bash.  
+   From the root of your application run: _mvn clean package -DskipTests -Dquarkus.package.jar.type=uber-jar_  
+4. copy the resulting jar to your VM:   
+   ```shell
+   scp -i [PATH-TO-PEM-KEY] target/pxl-training-base-1.0-SNAPSHOT-runner.jar ec2-user@[YOUR-VM-DNS]:~
+   ```
+5. copy your kafka pem certificate received in step 4 to your VM:  
+   _scp path/to/kafka.pem i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]_
+6. run your application:  
+   ```shell
+   nohup java -jar pxl-training-base-1.0-SNAPSHOT-runner.jar 2>&1 &  
+   ```
+   You'll find a 'nohup.out' file in the same directory. It collects the output logs of your application.
+   You can use it to follow what is going on by tailing it:  
+   ```shell
+   tail -f nohup.out
+   ```
+   To stop tailing the logs it hit: ctrl + c
+7. test your application. In postman, change localhost with http://[YOUR-VM-DNS]:8080. 
+   Send a request with a valid body.
+8. optionally, if you want to stop your java application you have to kill it.  
+   Find the PID (process id). This is an example on a random VM:
+   ```shell
+   [ec2-user@ip-172-31-21-86 ~]$ ps -ef | grep java
+   ec2-user  474523  474498 98 10:50 pts/0    00:00:03 java -jar /home/ec2-user/pxl-training-base-1.0-SNAPSHOT-runner.jar
+   ec2-user  474538  474498  0 10:50 pts/0    00:00:00 grep --color=auto java
+   ```
+   The PID here is 474523. Use it to kill your java process:
+   ```shell
+   kill 474523
+   ```
 
-1. uncomment the `<!-- Spring security dependencies ... -->` block in the _pom.xml_.  
-2. uncomment these configuration keys in the _application.properties_:
-   - spring.security.oauth2.resourceserver.jwt.issuer-uri
-   - spring.security.oauth2.resourceserver.jwt.jwk-set-uri
-   
-   The result is that as documented on https://docs.spring.io/spring-security/reference/reactive/oauth2/resource-server/jwt.html,  
-   your application will expect and validate OAuth2 tokens in any request to your Camel REST API.  
-   The validation will check that:
-   * the claim 'iss' (=issuer) has the configured value
-   * the signature of the token is valid with using the JWK  downloaded from the configured URL.  
-     JWK is part of the JOSE specification. It's a  Keys represented as Json (Json Web Key).
-
-3. verify that you cannot query you API anymore.
-   You will now get an HTTP 401 unauthorized error response when you query it.
-   
-4. in Postman, on your query to you API, configure the client credentials OAuth flow on Postman and test your API again.  
-   Ask your clientId and secrets to your APIM teacher.
-   -Follow these instructions to configure Postman:
-     - in the 'Authorization' tab of your request, select OAuth2 'auth type'
-	 - set 'Add authorization data' to 'Request Headers'
-	 - leave 'Header Pefix' as 'Bearer'
-	 - give a name to your token. Ex: myToken
-	 - set 'Grant Type' to 'client credentials'
-	 - set 'Access Token URL' to the value of 'token_endpoint' in the list of URLs of the Authorization Server
-	 - set 'Client ID' and 'Client Secret' to their respective values that you have received
-	 - set 'Scope' to 'api://7304faca-f8d6-44d5-b0e1-bb40fb1d53e6/.default'
-	 - click the 'Get New Access Token' button. It will fill the current token above still in the Authorization tab.
-	   You can check the content of the token by pasting it on https://jwt.io/. Do that only with non sensitive tokens like the one here for the traiging!
+    [to step 7](exercise-1-step-7) 
