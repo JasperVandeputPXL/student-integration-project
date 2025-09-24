@@ -48,12 +48,13 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
     @Inject
     ObjectMapper mapper;
 
-    static final Logger LOG = Logger.getLogger(TicketPurchaseAPIRouteTemp.class);
+    static final Logger LOG = Logger.getLogger(TicketPurchaseAPIRoute.class);
 
     @Override
     public void configure() {
         onException(ValidationException.class)
-            .setBody(simple("invalid input: ${body}"))
+            .handled(true)
+            .transform().simple("invalid input: ${body}")
             .setHeader(Exchange.CONTENT_TYPE, constant("text/plain"))
             .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(400));
         
