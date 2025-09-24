@@ -1,0 +1,55 @@
+{
+  "type": "record",
+  "name": "PaymentStatusUpdate",
+  "namespace": "com.festival.tickets",
+  "doc": "Represents an update on the status of a payment for a ticket purchase.",
+  "fields": [
+    {
+      "name": "purchaseId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      },
+      "doc": "The unique identifier for the related purchase request."
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "The time the event was created in milliseconds since epoch."
+    },
+    {
+      "name": "status",
+      "type": [
+        {
+          "type": "record",
+          "name": "PaymentSucceeded",
+          "doc": "Details for a successful payment.",
+          "fields": [
+            {
+              "name": "paymentId",
+              "type": "string",
+              "doc": "The unique identifier from the payment gateway."
+            }
+          ]
+        },
+        {
+          "type": "record",
+          "name": "PaymentFailed",
+          "doc": "Details for a failed payment.",
+          "fields": [
+            {
+              "name": "reason",
+              "type": "string",
+              "doc": "The reason for the payment failure."
+            }
+          ]
+        }
+      ],
+      "doc": "The status of the payment, which can be a success or a failure record."
+    }
+  ]
+}
+}

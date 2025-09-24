@@ -46,9 +46,10 @@ Each calculated data received will then be sent as an alert.
 
 1. We have agreed on specific format for the events.  
 This is enforced with an Avro schema. Here we are verifying that the event fulfill the schema requirements.  
-We first need to load the Avro schema. Add this to the beginning of your configure() method:  
+We first need to load the Avro schema. Add this to the beginning of your configure() method:
+
 ```java
-ClassPathResource avroSchema = new ClassPathResource("schema/schema-calculatedPrices.avsc", this.getClass().getClassLoader());
+ClassPathResource avroSchema = new ClassPathResource("schema/schema-paymentStatusUpdate.avsc", this.getClass().getClassLoader());
 InputStream avroSchemaIS = avroSchema.getInputStream();
 Schema schema = new Schema.Parser().parse(avroSchemaIS);
 ```

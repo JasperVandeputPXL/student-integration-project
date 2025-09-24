@@ -63,6 +63,7 @@
       "get": {
         "summary": "Retrieves the status of a ticket purchase.",
         "description": "Checks the current status of an initiated purchase. This allows clients to\nasynchronously track payment and fulfillment progress.\n",
+        "operationId": "purchaseStatus",
         "parameters": [
           {
             "name": "purchaseId",
@@ -96,6 +97,7 @@
       "get": {
         "summary": "Gets the real-time inventory count for a ticket type.",
         "description": "Exposes the current number of available tickets, updated by the Flink job.",
+        "operationId": "ticketInventory",
         "parameters": [
           {
             "name": "ticketType",
