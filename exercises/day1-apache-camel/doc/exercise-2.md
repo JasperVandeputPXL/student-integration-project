@@ -19,7 +19,7 @@ Wat you need to achieve this exercise and that already provided to you is:
    This is done in the class TicketPurchaseStatusEventsRoute. The PurchaseStatus bean is store in the TicketStatusCache.
    The TicketStatusCache is holding an hash map that stores the payment status events.
 3. provide the payment status over an HTTP endpoint
-   That is done in the PaymentStatusAPIRoute which expose a route listening the purchase status requests.
+   That is done in the TicketPaymentStatusAPIRoute which expose a route listening the purchase status requests.
    When a request comes in, it checks it the requested payment id exists in the cache and return it if found.
 4. reload the cache with all payment status at every start
    This is done in the class TicketPurchaseStatusEventsRoute.

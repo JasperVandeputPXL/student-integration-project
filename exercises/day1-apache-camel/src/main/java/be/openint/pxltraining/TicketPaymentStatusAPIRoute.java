@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @ApplicationScoped
-public class PaymentStatusAPIRoute extends RouteBuilder{
+public class TicketPaymentStatusAPIRoute extends RouteBuilder{
 
     @Inject
     TicketStatusCache ticketStatusCache;
