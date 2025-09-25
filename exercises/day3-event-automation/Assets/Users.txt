@@ -1,0 +1,23 @@
+IBM Event Streams Student Users:
+User name	|	password
+------------|-----------------
+student01   | 	pmlc81437d3325dbc9918e905e12e4
+student02   | 	ascc81437d3325dbc9918e905e12e4
+student03   | 	tghc81437d3325dbc9918e905e12e4
+student04   | 	bdfc81437d3325dbc9918e905e12e4
+student05   | 	hygc81437d3325dbc9918e905e12e4
+student06   | 	ljhc81437d3325dbc9918e905e12e4
+student07   | 	edbc81437d3325dbc9918e905e12e4
+student08   | 	sdgc81437d3325dbc9918e905e12e4
+student09   | 	uhfc81437d3325dbc9918e905e12e4
+student10   | 	zcec81437d3325dbc9918e905e12e4
+student11   | 	mshc81437d3325dbc9918e905e12e4
+student12   | 	edhc81437d3325dbc9918e905e12e4
+student13   | 	sssc81437d3325dbc9918e905e12e4
+student14   | 	dvyc81437d3325dbc9918e905e12e4
+student15   | 	xnec81437d3325dbc9918e905e12e4
+student16   | 	dhcc81437d3325dbc9918e905e12e4
+student17   | 	dhrc81437d3325dbc9918e905e12e4
+student18   | 	khec81437d3325dbc9918e905e12e4
+student19   | 	cykc81437d3325dbc9918e905e12e4
+student20   | 	ndyc81437d3325dbc9918e905e12e4
