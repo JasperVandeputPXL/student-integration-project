@@ -10,22 +10,22 @@ All the payment status will be reloaded at startup hence it is not required to p
 Configure your kafka consumer with the credential received from the teacher in the configurations with prefix: "kafka.festival.purchases.status.".
 
 Wat you need to achieve this exercise and that already provided to you is:
-1. listening to payment status events from  kafka topic
+1. listening to payment status events from a kafka topic
    This is done in the class TicketPurchaseStatusEventsRoute.
    It contains a route using the kafka component of camel listening to a topic.
    Each Event is deserialized based on the schema-paymentStatusUpdate.avsc avro schema.
    The event is then transformed in a PurchaseStatus bean. 
 2. store that event in a cache
-   This is done in the class TicketPurchaseStatusEventsRoute. The PurchaseStatus bean is store in the TicketStatusCache.
-   The TicketStatusCache is holding an hash map that stores the payment status events.
+   This is done in the class TicketPurchaseStatusEventsRoute. The PurchaseStatus bean is stored in the TicketStatusCache.
+   The TicketStatusCache is holding a hash map that stores the payment status events.
 3. provide the payment status over an HTTP endpoint
-   That is done in the TicketPaymentStatusAPIRoute which expose a route listening the purchase status requests.
+   That is done in the TicketPaymentStatusAPIRoute which exposes a route listening the purchase status requests.
    When a request comes in, it checks it the requested payment id exists in the cache and return it if found.
 4. reload the cache with all payment status at every start
    This is done in the class TicketPurchaseStatusEventsRoute.
    The kafka consumer is configured with 'seekTo=BEGINNING'.
    That ensure that when the application is fully restarted (not hot restarted has in dev mode) the topic is read from the beginning again.
-   If the topic read from the beginning, all the purchase statuses will be received again leading to filling the cache again 
+   If the topic is read from the beginning, all the purchase statuses will be received again leading to filling the cache again 
 
 **Play a bit with this part of the application to get used to it.
 You can add events on the kafka topic of the dev service with name ID_PURCHASES_STATUS (if you did not change the configuration).
