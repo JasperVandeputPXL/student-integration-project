@@ -2,7 +2,7 @@
 
 ## deploy you application in the cloud
 
-1. ask the DNS of your VM in the cloud and the private key to access it.
+1. ask the DNS of your VM in the cloud, the private key to access it is available in the assets directory of this exercise
 2. install java on your VM.
    In git bash: 
    a. Open a shell on your cloud VM: _ssh -i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]_
