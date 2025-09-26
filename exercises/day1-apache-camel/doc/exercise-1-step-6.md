@@ -6,7 +6,7 @@
 2. install java on your VM.
    In git bash: 
    a. Open a shell on your cloud VM: _ssh -i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]_
-   b. Install java: _sudo dnf install java-21-amazon-corretto-devel_
+   b. Install java: _sudo dnf install java-21-amazon-corretto-devel -y_
 3. build your application with the option to create an executable jar in git bash.  
    From the root of your application run: _mvn clean package -DskipTests -Dquarkus.package.jar.type=uber-jar_  
 4. copy the resulting jar to your VM:   
