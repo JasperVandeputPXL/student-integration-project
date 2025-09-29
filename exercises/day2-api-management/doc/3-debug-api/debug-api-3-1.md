@@ -39,7 +39,11 @@ In this exercise, we will debug an API operation in Azure API Management using P
 7. Go to the **Body** tab and enter the following JSON object:
 
 ```json
-{"userId":"string","quantity":0,"ticketType":"normal"}
+{
+  "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "quantity": 1,
+  "ticketType": "normal"
+}
 ```
 8. Send the request.
 9. You should receive a response with a status code of 200 OK and a JSON object containing the response from the backend service.

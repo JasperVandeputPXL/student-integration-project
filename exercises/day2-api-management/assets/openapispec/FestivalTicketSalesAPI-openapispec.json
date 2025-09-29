@@ -1,16 +1,16 @@
 {
-    "openapi": "3.0.3",
-    "info": {
-        "title": "Festival Ticket Sales API",
-        "description": "Public entry point for managing festival ticket purchases. This API is designed for asynchronous, event-driven interactions.",
-        "version": "1.0.0"
-    },
-    "servers": [
-        {
-            "url": "http://placeholder.be/api/v1"
-        }
-    ],
-    "paths": {
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Festival Ticket Sales API",
+    "description": "Public entry point for managing festival ticket purchases. This API is designed for asynchronous, event-driven interactions.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://placeholder.be/api/v1"
+    }
+  ],
+  "paths": {
     "/tickets/{ticketId}/purchase": {
       "post": {
         "summary": "Initiates a new ticket purchase.",
@@ -36,6 +36,11 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PurchaseRequest"
+              },
+              "example": {
+                "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                "quantity": 1,
+                "ticketType": "normal"
               }
             }
           },

@@ -59,7 +59,11 @@ There are multiple ways to test an API in Azure API Management. One way is to us
 4) In the **Request body** section, enter the following JSON object if it's not present already:
 
 ```json
-{"userId":"string","quantity":0,"ticketType":"normal"}
+{
+  "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "quantity": 1,
+  "ticketType": "normal"
+}
 ```
 5) Click on **Send** to send the request to the API.
 6) The response will be displayed in the **Response body** section. The response should be the mock response that was added to the API operation.

@@ -22,8 +22,6 @@ Have a look at the different sections of the OpenAPI specification. The specific
 4) Select the **Full** option in the **Create from OpenAPI specification** dialog.  
 5) In the **Specification URL** field, click **Select a file** and upload the [FestivalTicketSalesAPI-openapispec.json](../../assets/openapispec/FestivalTicketSalesAPI-openapispec.json) file.
 
-> **Note the intentional use of `http` instead of `https` as this backend does not presently support `https`.**  
-
 6) While the backend service only runs on `HTTP`, we need to **set URL scheme to `Both`** to allow for Azure API Management ingress to occur on HTTPS for callers such as the Developer Portal.  
 7) Change the **Name** to `festival-ticket-sales-api-xx`. Replace xx with your student number for this excercise.
 8) Set the **API URL suffix** to `api/festivalticketsalesxx`.  Replace xx with your student number for this excercise.
