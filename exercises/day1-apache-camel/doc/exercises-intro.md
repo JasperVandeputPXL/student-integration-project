@@ -4,7 +4,7 @@ The exercise is to implement the presented integration logic on Camel.
 
 You will start from a base project that already has:
 - all the dependencies required for all the steps defined
-- an 'hello world' Camel route
+- a 'hello world' Camel route
 - an integration test for Kafka ready to use  
 
 Prerequisites:

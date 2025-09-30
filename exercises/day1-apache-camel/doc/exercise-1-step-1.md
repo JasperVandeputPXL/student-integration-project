@@ -2,15 +2,16 @@
 
 ## Get to know a camel route
 
-1. clone the base project: git@github.com:I8C/student-integration-project.git  
-2. the code lies under the exercises/day1-apache-camel directory in the main branch  
-3. open the project subdirectory in Intellij  
-4. run the application:  
+1. Clone the base project: git@github.com:I8C/student-integration-project.git  
+2. The code lies under the exercises/day1-apache-camel directory in the main branch  
+3. Open the project subdirectory in Intellij  
+4. Ensure Docker is running
+5. Run the application:  
 	- in Git-bash, go to your application directory: cd /c/path/to/your/repository/**exercises/day1-apache-camel**  
 	- run: quarkus dev  
       This will start your application in dev mode which comes with the handy dashboard that you can find from http://localhost:8080 in your browser.
       It comes with automatic reload of your code as well.
-5. when the application runs, somewhere at the end of the logs in the console you should see a log entry with the text ">>>>>>>>> hello world! <<<<<<<<<<"  
+6. When the application runs, somewhere at the end of the logs in the console you should see a log entry with the text ">>>>>>>>> hello world! <<<<<<<<<<"  
 
 ## Expose a REST API
 
@@ -36,7 +37,7 @@ You can ignore those errors until you have compiled your code for the 1st time.
    from("direct:purchaseTicket")
    ```
 
-3. run the application ('quarkus dev' command from the directory of the application) and test it with postman.  
+3. Run the application ('quarkus dev' command from the directory of the application) and test it with postman.  
    In postman, create an HTTP POST request to http://localhost:8080/v1/tickets/:ticketId/purchase.  
    In the "Params" tab, set a value for the "Path Variables" "tickerId". 123 for example.
    Set the request header 'Content-Type' to 'application/json'.  
@@ -51,7 +52,7 @@ You can ignore those errors until you have compiled your code for the 1st time.
    ```
    The result in Postman should be to receive the '>>>>>>>>> hello world! <<<<<<<<<<' text as a response.  
    
-4. expose the OpenSpecs. Use the rest configuration to define an api context: https://github.com/apache/camel/blob/camel-4.2.x/components/camel-openapi-java/src/main/docs/openapi-java.adoc#using-openapi-in-rest-dsl.  
+4. Expose the OpenSpecs. Use the rest configuration to define an api context: https://github.com/apache/camel/blob/camel-4.2.x/components/camel-openapi-java/src/main/docs/openapi-java.adoc#using-openapi-in-rest-dsl.  
    `.apiContextPath("/api-doc")` exposes the specs at the "/api-doc" path, `.bindingMode(RestBindingMode.json)` converts Json bodies to they corresponding Java Bean (pojo) 
    Paste this a the begin of the existing `public void configure()` method:
 

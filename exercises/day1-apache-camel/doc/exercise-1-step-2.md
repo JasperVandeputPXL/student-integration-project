@@ -8,13 +8,13 @@
    ...
    .to("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig);
    ```
-   For you information for later steps, you configure the 'topicName' value in you configuration (resources/application.properties)  
+   For your information for later steps, you configure the 'topicName' value in you configuration (resources/application.properties)  
    by setting the 'kafka.festival.purchases.topic' property value.
    In the same configuration you'll find the quarkus configuration ready for the use of a kafka client: _camel.component.kafka.brokers_.
-   Currently it's commented to benefit from the Quarkus dev services that starts a Kafka container if it does not find a configured URL.
+   Currently, it's commented to benefit from the Quarkus dev services that starts a Kafka container if it does not find a configured URL.
    The value is the URL to connect to kafka.
    The other parameter of the kafka producer 'clientId' and 'saslJaasConfig' are already there for the next steps and will be explained then.  
-   In the mean time change the value of the property _'kafka.meter.consumption.info.client.id'_ in the application.properties.
+   In the meantime change the value of the property _'kafka.festival.purchases.client.id'_ in the application.properties.
    Change the value _[YOUR_FIRST_NAME_HERE]_ with your firstname.
 
 2. The current state of the route overwrites the message body to ">>>>>>>>> hello world! <<<<<<<<<<".  

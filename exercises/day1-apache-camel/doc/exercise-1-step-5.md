@@ -9,7 +9,7 @@ To be allowed to send events on it, you have to authenticate and to encrypt the 
    Add that in the configuration of your application.properties:  
      
 	 Replace [BROKER-URL], [YOUR-FIRSTNAME], [USER], [PASSWORD] and [PEM-FILENAME] with the corresponding values.  
-	 Becarefull, reuse the existing properties _camel.component.kafka.brokers_ and _kafka.meter.consumption.info.sasl-jaas-config_ instead of defining it twice!  
+	 Be careful: reuse the existing properties, _camel.component.kafka.brokers_, and _kafka.meter.consumption.info.sasl-jaas-config_ instead of defining it twice!  
      Indeed, those properties are already defined in your configuration and need to be adapted accordingly.  
      
 	 ```properties
