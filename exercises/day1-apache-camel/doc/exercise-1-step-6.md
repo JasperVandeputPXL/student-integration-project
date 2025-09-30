@@ -2,11 +2,12 @@
 
 ## deploy you application in the cloud
 
-1. ask the DNS of your VM in the cloud and the private key to access it.
+1. ask the DNS of your VM in the cloud, the private key to access it is available in the assets directory of this exercise
 2. install java on your VM.
    In git bash: 
    a. Open a shell on your cloud VM: _ssh -i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]_
-   b. Install java: _sudo dnf install java-21-amazon-corretto-devel_
+   b. Install java: _sudo dnf install java-21-amazon-corretto-devel -y_
+3. update the kafka path the the pem file to purchases.kafka.pem 
 3. build your application with the option to create an executable jar in git bash.  
    From the root of your application run: _mvn clean package -DskipTests -Dquarkus.package.jar.type=uber-jar_  
 4. copy the resulting jar to your VM:   
@@ -14,7 +15,8 @@
    scp -i [PATH-TO-PEM-KEY] target/pxl-training-base-1.0-SNAPSHOT-runner.jar ec2-user@[YOUR-VM-DNS]:~
    ```
 5. copy your kafka pem certificate received in step 4 to your VM:  
-   _scp path/to/kafka.pem i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]_
+   _scp path/to/kafka.pem i [PATH-TO-PEM-KEY] ec2-user@[YOUR-VM-DNS]:~/purchases.kafka.pem_
+   Set the value of the configuration **camel.component.kafka.ssl-truststore-location** to purchases.kafka.pem. 
 6. run your application:  
    ```shell
    nohup java -jar pxl-training-base-1.0-SNAPSHOT-runner.jar 2>&1 &  

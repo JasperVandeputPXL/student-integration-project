@@ -19,7 +19,7 @@ We will use the PurchaseAcceptedResponse bean generated from the specification t
        exchange.getIn().setBody(acceptedResponse);
    });
    ``` 
-   This code do :
+   This code will:
    - build the status URL deriving it from the request URL scheme and dns (=authority)
    - populate a PurchaseAcceptedResponse with the information of the request just created
    - set it as the response = exchange body

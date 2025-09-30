@@ -1,5 +1,7 @@
 # Exercise 1 step 6
 
+> DO THIS ONLY DAY 2 WHEN YOU RECEIVE CREDENTIALS TO CREATE API TOKENS  
+
 **Do this step only once you call your Camel route from the Azure API Manager the 2nd day of the training**  
 OR  
 **if you know how to get an access token on an Autorization server with client credentials**  

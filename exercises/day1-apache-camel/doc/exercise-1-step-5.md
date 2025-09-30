@@ -5,11 +5,12 @@
 The real kafka is using enterprise requirements to connect.  
 To be allowed to send events on it, you have to authenticate and to encrypt the connection.
 
-1. Ask for the broker url, credentials en pem certificate to get access to it:  
+1. Ask for the broker url, and credentials and to get access to it.
+   The pem file is located under src/main/resources/. Use the **absolute** path to it /path/to/your/repo/root/src/main/resources/ (use '/', the initial '/' is equivalent to 'C:\').
    Add that in the configuration of your application.properties:  
      
 	 Replace [BROKER-URL], [YOUR-FIRSTNAME], [USER], [PASSWORD] and [PEM-FILENAME] with the corresponding values.  
-	 Becarefull, reuse the existing properties _camel.component.kafka.brokers_ and _kafka.meter.consumption.info.sasl-jaas-config_ instead of defining it twice!  
+	 Be careful: reuse the existing properties, _camel.component.kafka.brokers_, and _kafka.meter.consumption.info.sasl-jaas-config_ instead of defining it twice!  
      Indeed, those properties are already defined in your configuration and need to be adapted accordingly.  
      
 	 ```properties
