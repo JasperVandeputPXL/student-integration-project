@@ -17,7 +17,7 @@ The next step is to connect the API to the backend service. This will allow the 
 1. In the Azure portal, go to your API Management instance and click on **APIs** in the left-hand menu.
 2. Click on the **Festival Ticket Sales API xx** API.
 3. Click on the **Settings** tab.
-4. Change the value of the **Backend URL** to the URL of the Camel API created during day 1. The URL should resemble `http://<your-instance-name>-.eu-central-1.compute.amazonaws.com:8080/api/v1`. Replace `<your-instance-name>` with the values from the previous exercise in Camel.
+4. Change the value of the **Backend URL** to the URL of the Camel API created during day 1. The URL should resemble `http://<your-instance-name>-.eu-central-1.compute.amazonaws.com:8080/api/v1`. Replace `<your-instance-name>` with the values from the previous exercise in Camel. If you don't have a working API from day 1 then you can use the following mock API URL: `http://ec2-user@ec2-3-72-47-60.eu-central-1.compute.amazonaws.com:8080/v1/`.
 5. Press **Save**.
 
   ![APIM Change backend](../../assets/images/apim-change-backend.png)
@@ -29,7 +29,7 @@ The backend API that was created during the first day should require a valid OAu
 2. Click on the operation **All operations**.
 3. Go to the **Inbound processing** section and open **policy code editor**.
  ![APIM policy editor](../../assets/images/apim-policy-editor.png)
- 4. The XML editor will open. Add the following policy to the `<inbound>` section of the policy:
+ 4. The XML editor will open. Add the following policy to the `<inbound>` section of the policy after the `<base />` line:
 ```xml
       <set-variable name="tokenEndpoint" value="https://login.microsoftonline.com/09385aae-477d-4c3c-bb3d-36f75a52cdc3/oauth2/v2.0/token" />
         <set-variable name="clientId" value="<replace with backend clientId>" />
@@ -72,7 +72,11 @@ In order to test the API, we will use Postman to send a request to the API and v
 7. Go to the **Body** tab and enter the following JSON object:
 
 ```json
-{"userId":"string","quantity":0,"ticketType":"normal"}
+{
+  "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "quantity": 1,
+  "ticketType": "normal"
+}
 ```
 8. Send the request.
 9. You should receive a response with a status code of 200 OK and a JSON object containing the response from the backend service.

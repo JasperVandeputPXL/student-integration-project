@@ -27,14 +27,25 @@ In order to test the JSON schema validation policy, we will use Postman to send 
 3. Modify the request body to test different scenarios:
    - Valid request body:
 ```json
-{"userId":"string","quantity":1,"ticketType":"normal"}
+{
+  "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "quantity": 1,
+  "ticketType": "normal"
+}
 ```
    - Invalid request body (missing required field):
 ```json
-{"userId":"string","quantity":1}
+{
+  "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "quantity": 1
+}
 ```
    - Invalid request body (wrong data type):
 ```json
-{"userId":"string","quantity":"one","ticketType":"normal"}
+{
+  "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "quantity": "one",
+  "ticketType": "normal"
+}
 ```
 4. Send the request and observe the response.
