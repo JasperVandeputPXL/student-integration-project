@@ -2,3 +2,5 @@ Event EndPoint Management
 	UI URL: https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com
 	User: Camel
 	password: b9198506f5a50bdfcff58b70f8e583
+
+Bootstrap Server:  eem-demo-gw-ibm-egw-rt-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com:443
