@@ -1,7 +1,7 @@
 Platform      		  |  URL
 ------------------------------------
-Event Streams 		  | https://es-demo-ibm-es-ui-tools.apps.itz-fycujt.hub04-lb.techzone.ibm.com
-Event Endpoint Management | https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-fycujt.hub04-lb.techzone.ibm.com
-Event Processing	  | https://ep-demo-ibm-ep-rt-tools.apps.itz-fycujt.hub04-lb.techzone.ibm.com
+Event Streams 		  | https://es-demo-ibm-es-ui-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com
+Event Endpoint Management | https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com
+Event Processing	  | https://ep-demo-ibm-ep-rt-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com
 			  |
-Bootstrap Server	  | eem-demo-gw-ibm-egw-rt-tools.apps.itz-fycujt.hub04-lb.techzone.ibm.com:443
+Bootstrap Server	  | eem-demo-gw-ibm-egw-rt-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com:443
