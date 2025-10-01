@@ -52,7 +52,7 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
 
     @Override
     public void configure() {
-        onException(ValidationException.class)
+        onException(IllegalArgumentException.class)
             .handled(true)
             .transform().simple("invalid input: ${body}")
             .setHeader(Exchange.CONTENT_TYPE, constant("text/plain"))

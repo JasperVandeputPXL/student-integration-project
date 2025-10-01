@@ -18,14 +18,12 @@ We will use it to validate the input.
    .inputType(be.openint.pxltraining.generated.PurchaseRequest.class)
    .routeId(getClass().getSimpleName())
    .log("body of ticket purchase\n${body}")
-   .setProperty("BODY_POJO", simple("${body}"))
    // https://camel.apache.org/components/4.4.x/log-component.html
    .to("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig);
    ``` 
-   This code does more than validating the json body, it:
-   - deserializes the JSON body in a PurchaseRequest bean thanks to the JSON binding mode
-   - saves the PurchaseRequest object in a property called 'BODY_POJO' for later use
-   - serializes (= marshal) the PurchaseRequest back to a JSON string for the json-validator component that only accepts JSON strings
+   This code deserializes the JSON body in a PurchaseRequest bean thanks to the JSON binding mode and the generation 
+   of the beans from the specification
+
    
 2. test that you are sending something to Kafka using the quarkus dev service for kafka.
    Start your application with 'quarkus dev' and send a ticket purchase request to your application with postman.
@@ -42,7 +40,8 @@ To create your Avro Schema from the avro definition:
    ```
    The IDE will complain that you have an unhandled exception.  Add it to the method signature using Intellij's suggestion
 2. Use the schema in your route to serialize the request body and transform it in a binary Avro output ready for Kafka.  
-   This piece of code, take the PurchaseRequest bean from the request and create a new JSON object from it and add a purchaseId and a timestamp to fulfill the Avro schema contract.  
+   This piece of code, take the PurchaseRequest bean from the request and create a new JSON object from it and add a 
+   purchaseId and a timestamp to fulfill the Avro schema contract.  
    That JSON object is then serialized with the avro schema to be sent to kafka.
    After `.to("json-validator:classpath:" + openApiFilename)` add a processor that will handle that logic:  
    ```java
