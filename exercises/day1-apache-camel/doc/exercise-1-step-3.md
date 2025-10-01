@@ -6,8 +6,7 @@ The Json format of the request body is defined in the openapi/Festival_Ticket_Sa
 We will use it to validate the input.  
 
 
-1. In the TicketPurchaseAPIRoute class, in your route, after the _.log(...)_ call the [json-validator](https://camel.apache.org/components/4.4.x/json-validator-component.html) component:
-   Change
+1. In the TicketPurchaseAPIRoute class, in your route change
    ```java
    .routeId(getClass().getSimpleName())
    .log("body of ticket purchase\n${body}")
@@ -20,8 +19,6 @@ We will use it to validate the input.
    .routeId(getClass().getSimpleName())
    .log("body of ticket purchase\n${body}")
    .setProperty("BODY_POJO", simple("${body}"))
-   .marshal().json(JsonLibrary.Jackson)
-   .to("json-validator:classpath:" + openApiFilename)
    // https://camel.apache.org/components/4.4.x/log-component.html
    .to("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig);
    ``` 
