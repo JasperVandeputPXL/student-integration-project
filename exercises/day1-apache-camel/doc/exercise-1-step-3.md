@@ -49,8 +49,8 @@ To create your Avro Schema from the avro definition:
           //TODO
           UUID purchaseId = UUID.randomUUID();
           exchange.setProperty("purchaseId", purchaseId);
-          PurchaseRequest purchaseRequest = exchange.getProperty("BODY_POJO", PurchaseRequest.class);
-
+          PurchaseRequest purchaseRequest = exchange.getIn().getBody(PurchaseRequest.class);
+          
           ObjectNode ticketPurchaseJson = mapper.createObjectNode();
           ticketPurchaseJson.put("purchaseId", purchaseId.toString());
           ticketPurchaseJson.put("userId", purchaseRequest.getUserId().toString());
