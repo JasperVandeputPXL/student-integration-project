@@ -1,0 +1,9 @@
+{
+  "id": "fcc655ad-69bf-4eae-947c-ec3ed5ae1455",
+  "type": "SASL",
+  "data": {
+    "username": "eem-58955c36-e547-474b-8895-b95084e55140",
+    "password": "a439e9b3-47d8-4823-9141-75d2b933d20c",
+    "mechanism": "PLAIN"
+  }
+}
