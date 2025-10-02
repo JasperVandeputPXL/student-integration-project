@@ -43,7 +43,7 @@ To create your Avro Schema from the avro definition:
    This piece of code, take the PurchaseRequest bean from the request and create a new JSON object from it and add a 
    purchaseId and a timestamp to fulfill the Avro schema contract.  
    That JSON object is then serialized with the avro schema to be sent to kafka.
-   After `.to("json-validator:classpath:" + openApiFilename)` add a processor that will handle that logic:  
+   After `.log("body of ticket purchase\n${body}")` add a processor that will handle that logic:  
    ```java
       .process(exchange -> {
           //TODO
