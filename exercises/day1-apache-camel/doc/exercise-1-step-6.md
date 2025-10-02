@@ -38,7 +38,7 @@
    ```
    The PID here is 474523. Use it to kill your java process:
    ```shell
-   kill 474523
+   kill -9 474523
    ```
 
     [to step 7](exercise-1-step-7) 

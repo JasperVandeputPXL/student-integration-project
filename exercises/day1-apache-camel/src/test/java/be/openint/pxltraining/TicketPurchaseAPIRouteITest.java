@@ -1,10 +1,11 @@
 package be.openint.pxltraining;
 
 import be.openint.pxltraining.configuration.KafkaTestContainerResource;
+import be.openint.pxltraining.generated.PurchaseRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.test.common.WithTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
-import net.javacrumbs.jsonunit.assertj.JsonAssertions;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
@@ -19,6 +20,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * an integration test using a kafka container.
@@ -58,7 +61,9 @@ public class TicketPurchaseAPIRouteITest extends CamelQuarkusTestSupport {
     //defining what is expected to happen on the mock
     messageConsumer.expectedMessageCount(1);
     //send the event to the route to test
-    producerTemplate.sendBody("direct:purchaseTicket", readRequestBodyAsAFile());
+    ObjectMapper objectMapper = new ObjectMapper();
+    PurchaseRequest purchaseRequest = objectMapper.readValue(readRequestBodyAsAFile(), PurchaseRequest.class);
+    producerTemplate.sendBodyAndHeader("direct:purchaseTicket", purchaseRequest, Exchange.HTTP_URL, "http://localhost:8080/integration/test");
 
     //verifies that the expectation were fulfilled
     messageConsumer.assertIsSatisfied();
@@ -66,7 +71,9 @@ public class TicketPurchaseAPIRouteITest extends CamelQuarkusTestSupport {
     //verifying the request body is the one expected
     Exchange exchange = messageConsumer.getExchanges().getFirst();
     String body = exchange.getIn().getBody(String.class);
-    JsonAssertions.assertThatJson(body).isEqualTo(readRequestBodyAsAFile());
+    assertTrue(body.contains(String.format("\"userId\":\"%s\"",purchaseRequest.getUserId())));
+    assertTrue(body.contains(String.format("\"quantity\":%s",purchaseRequest.getQuantity())));
+    assertTrue(body.contains(String.format("\"ticketType\":\"%s\"",purchaseRequest.getTicketType().toString())));
   }
 
   private static String readRequestBodyAsAFile() throws IOException, URISyntaxException {

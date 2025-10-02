@@ -37,7 +37,8 @@ public class TicketInventoryEventsRoute extends RouteBuilder {
         InputStream avroSchemaIS = getClass().getResourceAsStream("/schema/schema-inventoryUpdated.avsc");
         Schema schema = new Schema.Parser().parse(avroSchemaIS);
 
-            from("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig + "?seekTo=BEGINNING")
+            from("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig + "&seekTo=BEGINNING")
+                .routeId(getClass().getSimpleName())
                 .process(exchange -> {
                     JsonDecoder decoder = DecoderFactory.get().jsonDecoder(schema, exchange.getIn().getBody(String.class));
                     GenericDatumReader<GenericRecord> reader = new GenericDatumReader<>(schema);

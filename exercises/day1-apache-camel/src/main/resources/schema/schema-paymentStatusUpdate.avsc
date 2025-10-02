@@ -22,34 +22,10 @@
     },
     {
       "name": "status",
-      "type": [
-        {
-          "type": "record",
-          "name": "PaymentSucceeded",
-          "doc": "Details for a successful payment.",
-          "fields": [
-            {
-              "name": "paymentId",
-              "type": "string",
-              "doc": "The unique identifier from the payment gateway."
-            }
-          ]
-        },
-        {
-          "type": "record",
-          "name": "PaymentFailed",
-          "doc": "Details for a failed payment.",
-          "fields": [
-            {
-              "name": "reason",
-              "type": "string",
-              "doc": "The reason for the payment failure."
-            }
-          ]
-        }
-      ],
-      "doc": "The status of the payment, which can be a success or a failure record."
+      "type": {
+        "type": "string"
+      },
+      "doc": "The status of the payment, which can be a success or a failure record, or null/enum if status is pending/unknown."
     }
   ]
-}
 }
