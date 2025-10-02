@@ -23,12 +23,6 @@
    ```java
    .log("body of ticket purchase\n${body}")
    ```
-
-3. Run the integration test 'TicketPurchaseAPIRouteITest' from the test sources to run the route.  
-   That test is using the TestContainer technology to create a Kafka container and connect to it.  
-   It will use the configuration in application.properties in the test resources in the src/test/resources directory.
-   The test has to succeed and somewhere in the logs you should find you log "body of ticket purchase" with the body on the nex lines.
-
 ## Send an event to Kafka started for you automatically by Quarkus
 
 Now that you know that you have managed to send an event on a Kafka Test container, lets send an event on local Kafka container.

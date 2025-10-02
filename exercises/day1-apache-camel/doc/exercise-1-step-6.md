@@ -1,4 +1,4 @@
-# Exercise 1 step 5
+# Exercise 1 step 6
 
 ## deploy you application in the cloud
 

@@ -1,4 +1,4 @@
-# Exercise 1 step 6
+# Exercise 1 step 7
 
 > DO THIS ONLY DAY 2 WHEN YOU RECEIVE CREDENTIALS TO CREATE API TOKENS  
 

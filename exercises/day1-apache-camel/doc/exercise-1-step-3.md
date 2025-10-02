@@ -84,8 +84,12 @@ To create your Avro Schema from the avro definition:
    import org.apache.avro.io.*;
    ```
 3. Run the application with 'quarkus dev' to verify it's working with the avro schema serialization
-4. create the topic on the dev ui with the name from your configuration
-5. Send a POST request with a body conform to the OpenAPI specification otherwise you'll get an error because the input is invalid.
-6. Check that you see the log "receiving ticket purchase request for userId 3fa85f64-5717-4562-b3fc-2c963f66afa6" with your id and that the ticket is in Kafka
+4. Run the integration test 'TicketPurchaseAPIRouteITest' from the test sources to run the route.  
+   That test is using the TestContainer technology to create a Kafka container and connect to it.  
+   It will use the configuration in application.properties in the test resources in the src/test/resources directory.
+   The test has to succeed and somewhere in the logs you should find you log "body of ticket purchase" with the body on the nex lines.
+5. create the topic on the dev ui with the name from your configuration
+6. Send a POST request with a body conform to the OpenAPI specification otherwise you'll get an error because the input is invalid.
+7. Check that you see the log "receiving ticket purchase request for userId 3fa85f64-5717-4562-b3fc-2c963f66afa6" with your id and that the ticket is in Kafka
    
     [to step 4](exercise-1-step-4) 
