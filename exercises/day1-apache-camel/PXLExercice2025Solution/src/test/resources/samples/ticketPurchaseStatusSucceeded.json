@@ -1,0 +1,9 @@
+{
+  "purchaseId": "aae26dc6-1191-47aa-875f-a59dbccc226b",
+  "status": {
+    "com.festival.tickets.PaymentSucceeded": {
+      "paymentId": "123"
+    }
+  },
+  "timestamp": 1758749537
+}

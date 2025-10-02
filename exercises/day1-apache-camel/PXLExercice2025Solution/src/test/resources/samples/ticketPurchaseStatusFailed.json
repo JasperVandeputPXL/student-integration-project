@@ -1,0 +1,9 @@
+{
+  "purchaseId": "8f14e45f-ea7b-4c3f-a0a1-5e4d5e7a2cde",
+  "timestamp": 1758703200000,
+  "status": {
+    "com.festival.tickets.PaymentFailed": {
+      "reason": "Card declined: insufficient funds"
+    }
+  }
+}
