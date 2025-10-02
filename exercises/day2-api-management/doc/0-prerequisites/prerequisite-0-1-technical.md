@@ -4,18 +4,15 @@
   - Access to the [Azure Portal](https://www.portal.azure.com)
   - Login in with the following credentials:
     - **Username**: `pxlstudentxx@integrationteamtesting.onmicrosoft.com`
-    - **Password**: 'student123!'
-  - ![Portal login](../../assets/images/portal-login.png)
-
-   - During a first login, you will be asked to change your password. 
-  - **Multi-factor authentication (MFA)** is enabled for this account. You will be asked to provide a phone number to receive a verification code. Use the option to skip this step for 14 days.
-  - **Azure tour**: You will be asked to take a tour of the Azure portal. You can skip this step.
-  ![Azure tour](../../assets/images/portal-tour.png)
+    ![TAP Login](../../assets/images/portal-login.png)
+  - The portal will ask to enter a Temporary Access Passcode (TAP). The TAP will be provided by your instructor.
+     
+   ![TAP Login](../../assets/images/tap-login.png)
  - Validate in the Azure portal if you have access to the Azure API Management service: **apim-pxl-training-weu-001**. Use the following steps to validate this:
     - Go to the Azure portal
     - Search for **API Management services**
     - Select the **apim-pxl-training-weu-001** service
-    - ![API Management service](../../assets/images/apim-service.png)
+     ![API Management service](../../assets/images/apim-service.png)
     - If you don't have access to this service, please contact your instructor.  
 
 - Software requirements

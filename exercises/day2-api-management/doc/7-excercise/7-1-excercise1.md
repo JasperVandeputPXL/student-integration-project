@@ -5,7 +5,7 @@ Now it's up to you to enhance the current soltuion with the following features:
 
 ## Exercise 1: Check HTTP header
 Check if the client is calling the API with a value inside the Authorization HTTP header. If the header is missing, return a 401 Unauthorized response. Hint: Use the 
-`check-header` policy. (https://learn.microsoft.com/en-us/azure/api-management/check-header)
+`check-header` policy. (https://learn.microsoft.com/en-us/azure/api-management/check-header-policy)
 
 ## Exercise 2: Verify OAuth2 response
 Update the OAuth2 policy that is used to request a token from the identity provider to check if the identityprovider returned a HTTP status code 200 and only add the token to the Authorization header in that case. If the status code is different then 200, return a 401 Unauthorized response. Hint: Use the `choose` policy to check the status code. (https://learn.microsoft.com/en-us/azure/api-management/choose-policy)

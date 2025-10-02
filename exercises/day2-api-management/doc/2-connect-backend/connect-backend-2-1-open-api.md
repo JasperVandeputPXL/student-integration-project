@@ -80,3 +80,4 @@ In order to test the API, we will use Postman to send a request to the API and v
 ```
 8. Send the request.
 9. You should receive a response with a status code of 200 OK and a JSON object containing the response from the backend service.
+![APIM policy editor](../../assets/images/api-response.png)
