@@ -36,11 +36,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PurchaseRequest"
-              },
-              "example": {
-                "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "quantity": 1,
-                "ticketType": "normal"
               }
             }
           },
@@ -70,6 +65,7 @@
       "get": {
         "summary": "Retrieves the status of a ticket purchase.",
         "description": "Checks the current status of an initiated purchase. This allows clients to\nasynchronously track payment and fulfillment progress.\n",
+        "operationId": "purchaseStatus",
         "parameters": [
           {
             "name": "purchaseId",
@@ -101,10 +97,43 @@
         }
       }
     },
+    "/purchases": {
+      "post": {
+        "summary": "Loads a status of a ticket purchase in the cache.",
+        "description": "Loads a status of a ticket purchase in the cache.\n",
+        "operationId": "loadPurchaseStatus",
+        "requestBody": {
+          "description": "Purchase status.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurchaseStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Purchase status successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          }
+        }
+      }
+    },
     "/tickets/{ticketType}/inventory": {
       "get": {
         "summary": "Gets the real-time inventory count for a ticket type.",
         "description": "Exposes the current number of available tickets, updated by the Flink job.",
+        "operationId": "ticketInventory",
         "parameters": [
           {
             "name": "ticketType",
@@ -131,6 +160,38 @@
           },
           "404": {
             "description": "Ticket type not found."
+          }
+        }
+      }
+    },
+    "/tickets/inventory": {
+      "post": {
+        "summary": "Loads a real-time inventory count for a ticket type.",
+        "description": "Loads a real-time inventory count for a ticket type.",
+        "operationId": "loadTicketInventory",
+        "requestBody": {
+          "description": "Ticket Inventory inventory.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketInventory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Ticket inventory successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketInventory"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
           }
         }
       }

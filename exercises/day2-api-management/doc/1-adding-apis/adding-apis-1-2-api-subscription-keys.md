@@ -4,7 +4,7 @@ One way to secure your API is to require a subscription key or API key. This key
 The first thing we will need to do is to create a product in Azure API Management. A product is a collection of APIs that you can publish to developers. You can configure the product to require a subscription key, and you can set rate limits on the product.
 
 ### Create a product
-In the Azure portal go to your API Management instance and click on **Products** in the left-hand menu. Click on **Add product**.
+In the Azure portal go to your API Management instance and click on **Products** in the left-hand menu. Click on **Add**.
 
   ![APIM Add product](../../assets/images/apim-add-product.png)
 
@@ -54,7 +54,7 @@ There are multiple ways to test an API in Azure API Management. One way is to us
 
 ### Test the API operation inside the Azure portal
 1) Click on the **Test** tab.
-2) Select the operation **POST /tickets/purchase**. Display name: '**Initiates a new ticket purchase**'
+2) Select the operation **POST /tickets/{ticketId}/purchase**. Display name: '**Initiates a new ticket purchase**'
 3) In the **Template parameters** section, enter the value for the required parameter **ticketId**. For this exercise, enter `123`.
 4) In the **Request body** section, enter the following JSON object if it's not present already:
 
