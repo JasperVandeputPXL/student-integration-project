@@ -3,7 +3,8 @@
 1. open git bash shell and go to the directory of the exercise solution: `cd /path/to/git/directory/exercises/day1-apache-camel/PXLExercice2025Solution`  
    From now do everything from that shell instance.
 2. in the shell set you AWS VM DNS in a variable.  
-   The DNS is the file exercises/day1-apache-camel/assets/student-vms.json next your student number. Copy it and put in a variable.  
+   The DNS is in the file exercises/day1-apache-camel/assets/student-vms.json next your student number. Copy it and put in a variable.  
+   THE DNS CHANGES EACH TIME THE VMS IS RESTARTED, CHECK THE DNS AGAIN EACH WEEK.
    In this example replace "ec2-123-123-123-123.eu-central-1.compute.amazonaws.com" with the DNS name you have found:  
    `MY_AWS_DNS=ec2-123-123-123-123.eu-central-1.compute.amazonaws.com`
 3. install java on your VM.  
