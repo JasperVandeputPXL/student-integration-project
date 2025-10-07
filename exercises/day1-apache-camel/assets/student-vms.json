@@ -1,56 +1,75 @@
 [
-  "PXL-student01",
-  "ec2-63-177-91-71.eu-central-1.compute.amazonaws.com",
-]
-[
   "PXL-student02",
-  "ec2-18-184-95-86.eu-central-1.compute.amazonaws.com"
+  "ec2-63-178-164-33.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student04",
-  "ec2-35-159-125-76.eu-central-1.compute.amazonaws.com"
+  "ec2-3-68-75-23.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student06",
-  "ec2-18-194-208-194.eu-central-1.compute.amazonaws.com"
+  "ec2-63-180-14-58.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student10",
-  "ec2-18-197-139-63.eu-central-1.compute.amazonaws.com"
+  "ec2-52-57-132-249.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student11",
-  "ec2-52-59-105-14.eu-central-1.compute.amazonaws.com"
+  "ec2-63-176-172-229.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student08",
-  "ec2-54-93-238-4.eu-central-1.compute.amazonaws.com"
+  "ec2-18-193-101-144.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student13",
-  "ec2-3-72-255-89.eu-central-1.compute.amazonaws.com"
+  "ec2-18-194-33-119.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student03",
-  "ec2-3-124-242-197.eu-central-1.compute.amazonaws.com"
+  "ec2-18-198-3-147.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student05",
-  "ec2-3-122-246-86.eu-central-1.compute.amazonaws.com"
+  "ec2-3-122-248-130.eu-central-1.compute.amazonaws.com",
+  "running"
+]
+[
+  "PXL-student01",
+  "ec2-3-73-121-20.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student09",
-  "ec2-3-73-118-37.eu-central-1.compute.amazonaws.com"
+  "ec2-3-73-158-225.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student12",
-  "ec2-18-194-51-249.eu-central-1.compute.amazonaws.com"
+  "ec2-3-79-28-27.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student07",
-  "ec2-18-156-171-49.eu-central-1.compute.amazonaws.com"
+  "ec2-35-159-114-195.eu-central-1.compute.amazonaws.com",
+  "running"
+]
+[
+  "PXL-student01",
+  "ec2-3-122-242-141.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
 [
   "PXL-student14",
-  "ec2-63-178-194-233.eu-central-1.compute.amazonaws.com",
+  "ec2-3-126-83-66.eu-central-1.compute.amazonaws.com",
+  "running"
 ]
