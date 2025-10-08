@@ -51,7 +51,7 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
     static final Logger LOG = Logger.getLogger(TicketPurchaseAPIRoute.class);
 
     @Override
-    public void configure() {
+    public void configure() throws IOException {
         restConfiguration()
                 .apiContextPath("/api-doc")
                 .bindingMode(RestBindingMode.json);
@@ -65,11 +65,44 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
             .setHeader(Exchange.CONTENT_TYPE, constant("text/plain"))
             .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(400));
 
+        InputStream avroSchemaIS = getClass().getResourceAsStream("/schema/schema-ticketPurchase.avsc");
+        Schema schema = new Schema.Parser().parse(avroSchemaIS);
+
         // https://camel.apache.org/components/4.4.x/scheduler-component.html
         from("direct:purchaseTicket")
+            .inputType(be.openint.pxltraining.generated.PurchaseRequest.class)
             .routeId(getClass().getSimpleName())
             .log("body of ticket purchase\n${body}")
             // https://camel.apache.org/components/4.4.x/log-component.html
+            .process(exchange -> {
+                //TODO
+                UUID purchaseId = UUID.randomUUID();
+                exchange.setProperty("purchaseId", purchaseId);
+                PurchaseRequest purchaseRequest = exchange.getIn().getBody(PurchaseRequest.class);
+
+                ObjectNode ticketPurchaseJson = mapper.createObjectNode();
+                ticketPurchaseJson.put("purchaseId", purchaseId.toString());
+                ticketPurchaseJson.put("userId", purchaseRequest.getUserId().toString());
+                ticketPurchaseJson.put("ticketType", purchaseRequest.getTicketType().getValue());
+                ticketPurchaseJson.put("quantity", purchaseRequest.getQuantity());
+                ticketPurchaseJson.put("timestamp", Instant.now().getLong(ChronoField.INSTANT_SECONDS));
+                // Deserialize the JSON string into an Avro GenericRecord
+                Decoder decoder = DecoderFactory.get().jsonDecoder(schema, mapper.writeValueAsString(ticketPurchaseJson));
+                DatumReader<GenericRecord> reader = new GenericDatumReader<>(schema);
+                GenericRecord result = reader.read(null, decoder);
+
+                LOG.infof("receiving ticket purchase request for userId %s", purchaseRequest.getUserId().toString());
+
+                // Serialize the Avro GenericRecord to bytes
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                Encoder encoder = EncoderFactory.get().jsonEncoder(schema, baos);
+                DatumWriter<GenericRecord> writer = new GenericDatumWriter<>(schema);
+                writer.write(result, encoder);
+                encoder.flush();
+                baos.close();
+
+                exchange.getIn().setBody(baos.toByteArray());
+            })
             .to("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig);
     }
 }
