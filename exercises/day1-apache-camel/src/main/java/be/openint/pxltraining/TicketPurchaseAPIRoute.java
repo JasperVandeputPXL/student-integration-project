@@ -103,6 +103,20 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
 
                 exchange.getIn().setBody(baos.toByteArray());
             })
-            .to("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig);
+            .to("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig)
+            .process(exchange -> {
+                String requestUrl = exchange.getIn().getHeader(Exchange.HTTP_URL, String.class);
+                UUID purchaseId = exchange.getProperty("purchaseId", UUID.class);
+                URI uri = URI.create(requestUrl);
+
+                String basePath = uri.getScheme() + "://" + uri.getAuthority() + "/v1";
+                String statusUrl = basePath + "/purchases/" + purchaseId;
+
+                PurchaseAcceptedResponse acceptedResponse = new PurchaseAcceptedResponse();
+                acceptedResponse.setPurchaseId(purchaseId);
+                acceptedResponse.setStatusUrl(statusUrl);
+
+                exchange.getIn().setBody(acceptedResponse);
+            });
     }
 }
