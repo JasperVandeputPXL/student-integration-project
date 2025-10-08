@@ -68,8 +68,8 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
         // https://camel.apache.org/components/4.4.x/scheduler-component.html
         from("direct:purchaseTicket")
             .routeId(getClass().getSimpleName())
-            .setBody(constant(">>>>>>>>> hello world! <<<<<<<<<<"))
+            .log("body of ticket purchase\n${body}")
             // https://camel.apache.org/components/4.4.x/log-component.html
-            .to("log:be.openint.pxltraining");
+            .to("kafka:" + topicName + "?clientId=" + clientId + "&saslJaasConfig=" + saslJaasConfig);
     }
 }
