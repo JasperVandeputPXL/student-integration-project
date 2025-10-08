@@ -52,14 +52,21 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
 
     @Override
     public void configure() {
+        restConfiguration()
+                .apiContextPath("/api-doc")
+                .bindingMode(RestBindingMode.json);
+
+        rest()
+            .openApi(openApiFilename).getOpenApi().setMissingOperation("ignore");
+
         onException(IllegalArgumentException.class)
             .handled(true)
             .transform().simple("invalid input: ${body}")
             .setHeader(Exchange.CONTENT_TYPE, constant("text/plain"))
             .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(400));
-        
+
         // https://camel.apache.org/components/4.4.x/scheduler-component.html
-        from("scheduler:runOnceForPXLTrainingBase?delay=1000&repeatCount=1")
+        from("direct:purchaseTicket")
             .routeId(getClass().getSimpleName())
             .setBody(constant(">>>>>>>>> hello world! <<<<<<<<<<"))
             // https://camel.apache.org/components/4.4.x/log-component.html
