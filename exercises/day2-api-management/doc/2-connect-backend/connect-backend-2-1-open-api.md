@@ -64,7 +64,7 @@ ClientId: 7304faca-f8d6-44d5-b0e1-bb40fb1d53e6
 
 ClientSecret:Nb18Q~oNNQ.z73VrRA3njHkbqAEoKJNNV2wf.biA
 
-Scope: api://api://2c6d0b91-3915-4802-b335-7c641e6b09cc/.default
+Scope: api://2c6d0b91-3915-4802-b335-7c641e6b09cc/.default
 
 
 ### Test the API
