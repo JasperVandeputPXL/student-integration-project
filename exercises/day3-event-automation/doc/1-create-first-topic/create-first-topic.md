@@ -11,7 +11,8 @@
 The starter application is an easy way to test your topic. You will be able to publish events to the topic. And you will also be able to consume from the same topic.
 
 	- Go back to the home Tab
-	- Click on ![Try the starter application](../../doc/1-create-first-topic/images/StarterApp.png)
+	- Click on 
+![Try the starter application](../../doc/1-create-first-topic/images/StarterApp.png)
 	- Download the Jar from github (demo-all.jar)
 	- Click `Generate properties`  -> `Existing topic` -> Choose your newly create topic and download the zip
 	- Plaze the zip properties into the same folder als the jar file and unzip them
@@ -26,4 +27,4 @@ The starter application is an easy way to test your topic. You will be able to p
 	- Go to the topic tab 
 	- Open your new topic and verify if your events are coming in
 	- Don't forget to stop producing your events
-    ![TAP Login](../../doc/1-create-first-topic/images/verifyTopic.png)
+![Verify Topic](../../doc/1-create-first-topic/images/verifyTopic.png)
