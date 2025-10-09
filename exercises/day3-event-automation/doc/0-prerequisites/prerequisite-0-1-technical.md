@@ -10,6 +10,16 @@ Take your account id as agreed during previous exercises. The credentials are th
   - Login in with the following credentials:
     - **Username**: `studentXX` +´`matching password`
     ![TAP Login](../../Assets/login.PNG)
+	
+As we are all using the same instance of IBM Event Automation, we will see the objects other students are creating. 
+To avoid impact, you will use a prefix for each object you will create. 
+
+	Account 	- Prefix
+	Student01 	- ST01
+	Student02	- ST02
+	Student03 	- ST03
+	Student04 	- ST02
+	...
      
 
   
