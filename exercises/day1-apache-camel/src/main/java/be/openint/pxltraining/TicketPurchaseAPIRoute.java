@@ -42,9 +42,6 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
     @ConfigProperty(name = "kafka.festival.purchases.sasl-jaas-config")
     private String saslJaasConfig;
 
-    @ConfigProperty(name = "ticket-purchase.openapi.filename")
-    private String openApiFilename;
-
     @Inject
     ObjectMapper mapper;
 
@@ -52,12 +49,6 @@ public class TicketPurchaseAPIRoute extends RouteBuilder {
 
     @Override
     public void configure() throws IOException {
-        restConfiguration()
-                .apiContextPath("/api-doc")
-                .bindingMode(RestBindingMode.json);
-
-        rest()
-            .openApi(openApiFilename).getOpenApi().setMissingOperation("ignore");
 
         onException(IllegalArgumentException.class)
             .handled(true)
