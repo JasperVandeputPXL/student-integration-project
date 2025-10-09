@@ -13,6 +13,7 @@ The starter application is an easy way to test your topic. You will be able to p
 	- Go back to the home Tab
 	- Click on 
 ![Try the starter application](../../doc/1-create-first-topic/images/StarterApp.png)
+
 	- Download the Jar from github (demo-all.jar)
 	- Click `Generate properties`  -> `Existing topic` -> Choose your newly create topic and download the zip
 	- Plaze the zip properties into the same folder als the jar file and unzip them
