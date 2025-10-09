@@ -59,6 +59,11 @@ The backend API that was created during the first day should require a valid OAu
  5. Replace the placeholders with the values from the backend service. Request the values from the instructor.
  6. Press **Save**.
 
+--
+ClientId: 7304faca-f8d6-44d5-b0e1-bb40fb1d53e6
+ClientSecret:Nb18Q~oNNQ.z73VrRA3njHkbqAEoKJNNV2wf.biA
+Scope: api://api://2c6d0b91-3915-4802-b335-7c641e6b09cc/.default
+
 
 ### Test the API
 In order to test the API, we will use Postman to send a request to the API and view the response.
