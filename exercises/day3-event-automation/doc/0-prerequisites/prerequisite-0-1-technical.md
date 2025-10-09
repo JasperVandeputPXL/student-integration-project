@@ -9,7 +9,7 @@ You will find credentials to login in: [Credentials] (https://github.com/I8C/stu
 Take your account id as agreed during previous exercises. The credentials are the same for all 3 platforms.
   - Login in with the following credentials:
     - **Username**: `studentXX` +´`matching password`
-    ![TAP Login](../../Assets/login.png)
+    ![TAP Login](../../Assets/login.PNG)
      
 
   
