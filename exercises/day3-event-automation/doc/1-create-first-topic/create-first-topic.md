@@ -1,6 +1,6 @@
 ## IBM Event Streams
 	- Login to IBM Event Streams
-	- Click on ![Create a topic](../../doc/1-create-first-topic/images/createATopic.png)
+	- Click on ![Create a topic](images/createATopic.png)
     ![TAP Login](../../Assets/login.PNG)
 	- Give a topic name. Example given: ST00-MY.FIRST.TOPIC
 	- Other config can remain as is.
@@ -26,4 +26,4 @@ The starter application is an easy way to test your topic. You will be able to p
 	- Go to the topic tab 
 	- Open your new topic and verify if your events are coming in
 	- Don't forget to stop producing your events
-    ![TAP Login](../../doc/1-create-first-topic/verifyTopic.png)
+    ![TAP Login](../../doc/1-create-first-topic/images/verifyTopic.png)
