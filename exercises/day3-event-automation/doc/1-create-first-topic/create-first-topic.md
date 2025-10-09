@@ -1,7 +1,7 @@
 ## IBM Event Streams
 	- Login to IBM Event Streams
-	- Click on ![Create a topic](images/createATopic.png)
-    ![TAP Login](../../Assets/login.PNG)
+	- Click on 
+![Create a topic](images/createATopic.png)
 	- Give a topic name. Example given: ST00-MY.FIRST.TOPIC
 	- Other config can remain as is.
 	- Create Topic
