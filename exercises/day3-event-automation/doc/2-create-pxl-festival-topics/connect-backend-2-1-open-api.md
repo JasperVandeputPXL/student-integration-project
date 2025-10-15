@@ -15,7 +15,7 @@ This is as sort of app store for data streaming applications.
 	- Login to [IBM Event Endpoint Management] (https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
 	- Verify if you are already connected to a ES cluster 
 	- Go to Manage -> clusters	
-![ManageClusters](../images/Tab_Clusters.PNG)
+![ManageClusters](images/Tab_Clusters.PNG)
 	- If the list contains a cluster, you are good to go and you can continue with the step "Add your topics to EEM"
 	- If the list is empty, you will need to add the cluster to  your environment
 	
