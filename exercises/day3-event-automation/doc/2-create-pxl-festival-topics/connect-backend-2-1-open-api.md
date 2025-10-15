@@ -83,7 +83,7 @@ We still need to do come configuring before the topic is available for producing
 	- Here you can provide contact information for developers to use in case of questions
 	- Go to Event Information
 	- Lets add a event contract
-![PurchaseRequested.avsc](https://github.com/I8C/student-integration-project/tree/main/exercises/day3-event-automation/Assets/Avro)
+[PurchaseRequested.avsc](https://github.com/I8C/student-integration-project/tree/main/exercises/day3-event-automation/Assets/Avro)
 
 	- In the link you will find 3 contract you can download, download the first one: PurchaseRequested.avsc
 	- In EEM, drag and drop the contract in the appropriated box
