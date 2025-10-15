@@ -63,3 +63,42 @@ Also in EEM we make a difference between consuming events from a topic and produ
 Tip, store these credentials because you won't be able to request them again. When the credentials are lost, you will need to regenerate these credentials.
 
 #### Create a produce topic in EEM
+Now lets create a producing topic in EEM for STXX-TICKET.PURCHASE.REQUESTED
+
+	- In EEm go to Manage Topics and create "Add Topic"
+	- Click produce events
+	- Ensure your cluster is selected
+	- Select your topic (mind that you will see all topics available on the cluster)
+	- Tip: Modify the Event source name and add the action to the name -> this allows us to also create consuming topics)
+	e.g.: ST00-TICKET.PURCHASE.REQUESTED_PROD
+	- When done: you should see your topic in the catalog
+	
+We still need to do come configuring before the topic is available for producing new events.
+
+	- Go back to Manage topics and open your topic again
+	- Browsing through the tabs, you will see it is rather empty
+![NotConfiguredTopic](images/NotConfiguredTopic.PNG)
+	
+	- Click "Edit Information"
+	- Here you can provide contact information for developers to use in case of questions
+	- Go to Event Information
+	- Lets add a event contract
+![PurchaseRequested.avsc](https://github.com/I8C/student-integration-project/tree/main/exercises/day3-event-automation/Assets/Avro)
+
+	- In the link you will find 3 contract you can download, download the first one: PurchaseRequested.avsc
+	- In EEM, drag and drop the contract in the appropriated box
+	- If valid, you will see the structure of the contract
+![ValidatedMessage ](images/Validated.PNG)
+
+	- Change the message format to JSON
+	- Add a Sample message: 
+	
+	{
+	  "purchaseId": "f0e9d8c7-b6a5-4321-fedc-ba9876543210",
+	  "userId": "1a2b3c4d-5e6f-7080-91a2-b3c4d5e6f708",
+	  "ticketType": "vip",
+	  "quantity": 2,
+	  "timestamp": 1679059200000
+	}
+	
+	- Save and verify your result.
