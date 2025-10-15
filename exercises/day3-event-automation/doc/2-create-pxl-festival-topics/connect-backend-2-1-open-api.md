@@ -37,7 +37,23 @@ This is as sort of app store for data streaming applications.
 		
 ##### IBM Event Endpoint Management
 In EEM, click add cluster and provide the saved information
+
 	- Click "Add cluster"
 	- Give the cluster a logical name: st00-my-es-cluster
+	- If all is configure correctly, you should see something like:
+	
+![ConfiguredCluster](images/ClusterConfigured.PNG)
 	
 ### Add your topic to EEM
+A topic in IBM Event Endpoint Management (EEM) has a different role and purpose as in IBM Event Streams(ES). 
+	- In ES:
+		* We refer to the core capability of event storage and messaging unit.
+		* The main purpose is to provide a highly available and scalable log of events for producer to write to and consumers to read from
+	- In EEM:
+		* We use topics to describe, catalog, secure and govern access to the kafka topics provided in ES
+		* We enable self-service for developers
+		* We provide AsyncAPI specs for developers
+		* We allows an admin to define access, policies and plans
+		
+Also in EEM we make a difference between consuming events from a topic and producing events to a topic. Each type will always contain dedicated credentials!
+Tip, store these credentials because you won't be able to request them again. When the credentials are lost, you will need to regenerate these credentials.
