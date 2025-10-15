@@ -1,14 +1,14 @@
-## Create the required objects for the PXL festival servcice
+# Create the required objects for the PXL festival servcice
 The next step is to create all the required topics for the festival service, secure them and expose these topics to the public world to be used.
 
-### Create Topics
+## Create Topics
 Keep in mind to use your student prefix when creating objects (ST01, ST02,...)
 1. Create following topics using the same steps as you just created 'ST00-MY.FIRST.TOPIC':
 	* ST00-TICKET.INVENTORY.UPDATED
 	* ST00-TICKET.PAYMENT.STATUS.UPDATED
 	* ST00-TICKET.PURCHASE.REQUESTED
 
-### Connect your EEM with the ES cluster
+## Connect your EEM with the ES cluster
 When exposing topics to the outside (extern your team, domain, enterprise), you will want to do it secured and in a 
 self-managed way. To do this, we will use Event Endpoint Management (EEM). This is as sort of app store for data streaming applications.
 
@@ -20,7 +20,7 @@ self-managed way. To do this, we will use Event Endpoint Management (EEM). This 
 	- If the list contains a cluster, you are good to go and you can continue with the step "Add your topics to EEM"
 	- If the list is empty, you will need to add the cluster to  your environment
 	
-#### Add a new Cluster
+### Add a new Cluster
 ##### IBM Event Streams
 	- Get the cluster address from IBM Event Streams (tip: paste it in notepadd as you will also need to get the credentials 
 	-> these can only be copied once!!!)
@@ -37,7 +37,7 @@ self-managed way. To do this, we will use Event Endpoint Management (EEM). This 
 ![SaveCredentials](images/CopyCredentials.PNG)
 		
 		
-##### IBM Event Endpoint Management
+#### IBM Event Endpoint Management
 In EEM, click add cluster and provide the saved information
 
 	- Click "Add cluster"
@@ -61,3 +61,5 @@ A topic in IBM Event Endpoint Management (EEM) has a different role and purpose 
 		
 Also in EEM we make a difference between consuming events from a topic and producing events to a topic. Each type will always contain dedicated credentials!
 Tip, store these credentials because you won't be able to request them again. When the credentials are lost, you will need to regenerate these credentials.
+
+#### Create a produce topic in EEM
