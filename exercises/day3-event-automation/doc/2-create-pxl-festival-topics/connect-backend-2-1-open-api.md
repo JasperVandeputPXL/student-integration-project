@@ -1,5 +1,4 @@
 ## Create the required objects for the PXL festival servcice
-
 The next step is to create all the required topics for the festival service, secure them and expose these topics to the public world to be used.
 
 ### Create Topics
@@ -9,7 +8,18 @@ Keep in mind to use your student prefix when creating objects (ST01, ST02,...)
 	* ST00-TICKET.PAYMENT.STATUS.UPDATED
 	* ST00-TICKET.PURCHASE.REQUESTED
 
-### Connect the API to the backend service
+### Connect your EEM with the ES cluster
+When exposing topics to the outside (extern your team, domain, enterprise), you will want to do it secured and in a self-managed way. To do this, we will use Event Endpoint Management (EEM).
+This is as sort of app store for data streaming applications.
+
+	- Login to [IBM Event Endpoint Management] (https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
+	- Verify if you are already connected to a ES cluster 
+	- Go to Manage -> clusters	
+![ManageClusters](Tab_Clusters.PNG)
+	- If the list contains a cluster, you are good to go and you can continue with the step "Add your topics to EEM"
+	- If the list is empty, you will need to add the cluster to  your environment
+	
+
 
 1. In the Azure portal, go to your API Management instance and click on **APIs** in the left-hand menu.
 2. Click on the **Festival Ticket Sales API xx** API.
