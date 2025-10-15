@@ -19,4 +19,25 @@ This is as sort of app store for data streaming applications.
 	- If the list contains a cluster, you are good to go and you can continue with the step "Add your topics to EEM"
 	- If the list is empty, you will need to add the cluster to  your environment
 	
-
+#### Add a new Cluster
+##### IBM Event Streams
+	- Get the cluster address from IBM Event Streams (tip: paste it in notepadd as you will also need to get the credentials -> these can only be copied once!!!)
+		[GetClusterInfo](images/Get_ClusterInfo.PNG)
+		
+	- Generate Credentials
+		[GenerateCredentails](images/GenerateCredentials.PNG)
+		
+	- Produce messages, consume messages and create topics and schemas
+	- All Topics
+	- All Consumer Groups
+	- All transactional IDs
+	- Save your credentials
+		[SaveCredentials](images/CopyCredentials.PNG)
+		
+		
+##### IBM Event Endpoint Management
+In EEM, click add cluster and provide the saved information
+	- Click "Add cluster"
+	- Give the cluster a logical name: st00-my-es-cluster
+	
+### Add your topic to EEM
