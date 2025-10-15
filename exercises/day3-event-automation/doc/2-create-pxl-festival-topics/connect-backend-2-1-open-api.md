@@ -7,6 +7,7 @@ Keep in mind to use your student prefix when creating objects (ST01, ST02,...)
 	* ST00-TICKET.INVENTORY.UPDATED
 	* ST00-TICKET.PAYMENT.STATUS.UPDATED
 	* ST00-TICKET.PURCHASE.REQUESTED
+	
 
 ## Connect your EEM with the ES cluster
 When exposing topics to the outside (extern your team, domain, enterprise), you will want to do it secured and in a 
@@ -85,7 +86,7 @@ We still need to do come configuring before the topic is available for producing
 	- Lets add a event contract
 [PurchaseRequested.avsc](https://github.com/I8C/student-integration-project/tree/main/exercises/day3-event-automation/Assets/Avro)
 
-	- In the link you will find 3 contract you can download, download the first one: PurchaseRequested.avsc
+	- In the link you will find a contract you can download: PurchaseRequested.avsc
 	- In EEM, drag and drop the contract in the appropriated box
 	- If valid, you will see the structure of the contract
 ![ValidatedMessage ](images/Validated.PNG)
@@ -102,3 +103,44 @@ We still need to do come configuring before the topic is available for producing
 	}
 	
 	- Save and verify your result.
+	
+#### Lets add some policies
+Policies allow us to provide different forms of security. Here we will provide two types of policies: approval and schema enforcement
+
+	- Go to the options tab
+	- Create options
+	- Give it a usefull name and alias: ST001-TICKET.PURCHASE.REQUESTED_PRODUCED
+	- Click add control and add Approval
+	- Click add control again and add Schema enforcement
+	- Click Save
+	- Click Publish
+	
+Now Developers will be able to discover your newly created topic. But they can't use it yet!
+
+#### Create a subscription
+	- Go to catalog (you are using an privileged user, so imagen you now are an application developer instead of a kafka administrator)
+	- Browse to topic you need
+	- Here a developer can find all required info: 
+		* boorstrap server
+		* certificates
+		* avro contract
+		* example message
+		* Export an AsyncAPI (do download one and check what info it provides -> very usefull, just not for the exercise)
+		* There even is a code example to help developers get started
+	- Now click request access and fill in the form
+	- Notice the request is pending
+	
+	- Now lets get back to administrating Kafka 
+	- Go to access request and find your request
+	- Click on View request and approve
+	
+	- Go back to the Catalog
+	- Go to to your topic
+	- Click subscribe
+	- Download credentials -> you won't be able to download them again.
+	
+## Update Camel application
+	- Now go to your Camel application and update your credentials with your new credentials
+	- Go back to ES 
+	- Open your topic and see your results comming in
+	
