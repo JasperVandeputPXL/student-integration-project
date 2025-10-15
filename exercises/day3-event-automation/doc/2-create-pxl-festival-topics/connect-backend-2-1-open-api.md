@@ -46,6 +46,7 @@ In EEM, click add cluster and provide the saved information
 	
 ### Add your topic to EEM
 A topic in IBM Event Endpoint Management (EEM) has a different role and purpose as in IBM Event Streams(ES). 
+
 	- In ES:
 		* We refer to the core capability of event storage and messaging unit.
 		* The main purpose is to provide a highly available and scalable log of events for producer to write to and consumers to read from
