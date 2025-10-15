@@ -22,17 +22,17 @@ This is as sort of app store for data streaming applications.
 #### Add a new Cluster
 ##### IBM Event Streams
 	- Get the cluster address from IBM Event Streams (tip: paste it in notepadd as you will also need to get the credentials -> these can only be copied once!!!)
-		[GetClusterInfo](images/Get_ClusterInfo.PNG)
+![GetClusterInfo](images/Get_ClusterInfo.PNG)
 		
 	- Generate Credentials
-		[GenerateCredentails](images/GenerateCredentials.PNG)
+![GenerateCredentails](images/GenerateCredentials.PNG)
 		
 	- Produce messages, consume messages and create topics and schemas
 	- All Topics
 	- All Consumer Groups
 	- All transactional IDs
 	- Save your credentials
-		[SaveCredentials](images/CopyCredentials.PNG)
+![SaveCredentials](images/CopyCredentials.PNG)
 		
 		
 ##### IBM Event Endpoint Management
