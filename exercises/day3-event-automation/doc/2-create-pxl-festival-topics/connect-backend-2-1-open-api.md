@@ -144,3 +144,7 @@ Now Developers will be able to discover your newly created topic. But they can't
 	- Go back to ES 
 	- Open your topic and see your results comming in
 	
+### Nice extra
+	- Try sending events which do not match the contract and see if they arrive in your topic on ES
+	- Try the same thing when disabling the policy schema enforcement
+	
