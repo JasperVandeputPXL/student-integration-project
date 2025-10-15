@@ -9,19 +9,21 @@ Keep in mind to use your student prefix when creating objects (ST01, ST02,...)
 	* ST00-TICKET.PURCHASE.REQUESTED
 
 ### Connect your EEM with the ES cluster
-When exposing topics to the outside (extern your team, domain, enterprise), you will want to do it secured and in a self-managed way. To do this, we will use Event Endpoint Management (EEM).
-This is as sort of app store for data streaming applications.
+When exposing topics to the outside (extern your team, domain, enterprise), you will want to do it secured and in a 
+self-managed way. To do this, we will use Event Endpoint Management (EEM). This is as sort of app store for data streaming applications.
 
 	- Login to [IBM Event Endpoint Management] (https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
 	- Verify if you are already connected to a ES cluster 
 	- Go to Manage -> clusters	
 ![ManageClusters](images/Tab_Clusters.PNG)
+
 	- If the list contains a cluster, you are good to go and you can continue with the step "Add your topics to EEM"
 	- If the list is empty, you will need to add the cluster to  your environment
 	
 #### Add a new Cluster
 ##### IBM Event Streams
-	- Get the cluster address from IBM Event Streams (tip: paste it in notepadd as you will also need to get the credentials -> these can only be copied once!!!)
+	- Get the cluster address from IBM Event Streams (tip: paste it in notepadd as you will also need to get the credentials 
+	-> these can only be copied once!!!)
 ![GetClusterInfo](images/Get_ClusterInfo.PNG)
 		
 	- Generate Credentials
@@ -49,7 +51,8 @@ A topic in IBM Event Endpoint Management (EEM) has a different role and purpose 
 
 	- In ES:
 		* We refer to the core capability of event storage and messaging unit.
-		* The main purpose is to provide a highly available and scalable log of events for producer to write to and consumers to read from
+		* The main purpose is to provide a highly available and scalable log of events for producer to write 
+		to and consumers to read from
 	- In EEM:
 		* We use topics to describe, catalog, secure and govern access to the kafka topics provided in ES
 		* We enable self-service for developers
