@@ -15,6 +15,7 @@ self-managed way. To do this, we will use Event Endpoint Management (EEM). This 
 
 	- Login to 
 [IBM Event Endpoint Management](https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
+	
 	- Verify if you are already connected to a ES cluster 
 	- Go to Manage -> clusters	
 ![ManageClusters](images/Tab_Clusters.PNG)
