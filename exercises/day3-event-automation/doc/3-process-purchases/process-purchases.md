@@ -29,6 +29,7 @@ We will start by creating new topics in IBM Event Endpoint Management to allow u
 
 	- Login into 
 [EP](https://ep-demo-ibm-ep-rt-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
+
 	- Create a new Flow
 	- Add an event source to the canvas
 	- Add the bootstrap server (tip, EEM -> catalog)
@@ -58,3 +59,6 @@ We will start by creating new topics in IBM Event Endpoint Management to allow u
 	
 	
 	- You can play with the schema enforcementin EEM and see how EP reacts
+	
+## Update your Camel integration	
+	Update your Camel integration so it now receives the payment updates from your  own topic. Verify if you can get the results into your API application
