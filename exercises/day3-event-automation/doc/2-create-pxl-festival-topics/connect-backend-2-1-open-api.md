@@ -13,7 +13,8 @@ Keep in mind to use your student prefix when creating objects (ST01, ST02,...)
 When exposing topics to the outside (extern your team, domain, enterprise), you will want to do it secured and in a 
 self-managed way. To do this, we will use Event Endpoint Management (EEM). This is as sort of app store for data streaming applications.
 
-	- Login to [IBM Event Endpoint Management] (https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
+	- Login to 
+[IBM Event Endpoint Management](https://eem-demo-mgr-ibm-eem-manager-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
 	- Verify if you are already connected to a ES cluster 
 	- Go to Manage -> clusters	
 ![ManageClusters](images/Tab_Clusters.PNG)

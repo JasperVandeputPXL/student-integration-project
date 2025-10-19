@@ -6,5 +6,6 @@ update the inventory topic with the latest state.
 ## Create initial inventory
 
 	- Login to 
-[IBM Event Streams] (https://es-demo-ibm-es-ui-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
+[IBM Event Streams](https://es-demo-ibm-es-ui-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
+	
 	-
