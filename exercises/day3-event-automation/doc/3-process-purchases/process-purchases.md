@@ -5,7 +5,7 @@ solution.
 ## EEM: create new topics
 We will start by creating new topics in IBM Event Endpoint Management to allow us to consume and produce events by using Event Processing (EP)
 
-	- Create a consuming topic (STXX-TICKET.PURCHASE.REQUESTED) with an approval policy for Flink
+	- Create a consuming topic (STXX-TICKET.PURCHASE.REQUESTED_CONS) with an approval policy for Flink
 	- Request access and download credentials for EP
 	
 ### TICKET.PAYMENT.STATUS.UPDATED
@@ -17,7 +17,7 @@ We will start by creating new topics in IBM Event Endpoint Management to allow u
 		  "timestamp": 1678886400000,
 		  "status": "SUCCESS"
 		}
-	- Now create a consuming and producing topic in EEM for the ES topic: TICKET.PAYMENT.STATUS.UPDATED
+	- Now create a consuming and producing topic in EEM for the ES topic: TICKET.PAYMENT.STATUS.UPDATED (keep in mind the naming strategy)
 	- consuming: 
 		- policy = approval
 		- create credentials for your camel solution to consume the events
@@ -27,7 +27,8 @@ We will start by creating new topics in IBM Event Endpoint Management to allow u
 	
 ## ES: Real time processing
 
-	- Login into [EP](https://ep-demo-ibm-ep-rt-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
+	- Login into 
+[EP](https://ep-demo-ibm-ep-rt-tools.apps.itz-c8kjj5.infra01-lb.fra02.techzone.ibm.com)
 	- Create a new Flow
 	- Add an event source to the canvas
 	- Add the bootstrap server (tip, EEM -> catalog)
