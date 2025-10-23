@@ -21,7 +21,6 @@ To avoid impact, you will use a prefix for each object you will create.
 	Student04 	- ST02
 	...
      
-
   
-- During this lab, we will add the quarterly info API to our Azure API Management instance. 
+- During this lab, we will wirk with the Event Automation platform
 ![API exercise](../../Assets/design.png)
